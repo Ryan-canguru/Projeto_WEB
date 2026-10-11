@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIGI-AETHER — Arena & Campeonato Digital</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+
+  <!-- Iluminação e Auras Ambientais -->
+  <figure class="glow-bg glow-a"></figure>
+  <figure class="glow-bg glow-b"></figure>
+
+  <!-- Cabeçalho Principal e Status do Tamer -->
+  <header class="topbar">
+    <a href="#" class="brand" data-page="home">
+      <figure class="brand-icon">✧</figure>
+      <hgroup class="brand-text">
+        <b>DIGI-AETHER</b>
+        <small>REALM OF DIGITAL BEASTS</small>
+      </hgroup>
+    </a>
+
+    <address class="user-status">
+      <span class="user-avatar" id="userAvatar">🥷</span>
+      <hgroup class="user-info">
+        <b id="userName">Tamer Mestre</b>
+        <small id="userLevel">Nível 1 · 0 XP</small>
+      </hgroup>
+      <mark class="currency-badge">
+        ◈ <b id="userCoins">150</b> <small>Fragmentos</small>
+      </mark>
+    </address>
+  </header>
+
+  <section class="app-container">
+    <!-- Menu Lateral Semântico -->
+    <aside class="sidebar">
+      <p class="sidebar-title">NAVEGAÇÃO PRINCIPAL</p>
+      <nav class="nav-menu">
+        <button class="nav-item active" data-page="home"><span>⌂</span> Início</button>
+        <button class="nav-item" data-page="team"><span>♧</span> Minha Equipe</button>
+        <button class="nav-item" data-page="adoption"><span>🥚</span> Centro de Adoção</button>
+        <button class="nav-item" data-page="sanctuary"><span>♡</span> Santuário Tamagotchi</button>
+        <button class="nav-item" data-page="training"><span>⚡</span> Centro de Treino</button>
+        <button class="nav-item" data-page="gb-battle"><span>⚔</span> Arena & Torneios</button>
+        <button class="nav-item" data-page="evolution"><span>✧</span> Câmara Evolutiva</button>
+        <button class="nav-item" data-page="shop"><span>▤</span> Mercado Digital</button>
+        <button class="nav-item" data-page="inventory"><span>▦</span> Mochila do Tamer</button>
+        <button class="nav-item" data-page="dex"><span>◉</span> DigiDex</button>
+      </nav>
+
+      <footer class="sidebar-footer">
+        <figcaption class="save-tag">
+          <span class="status-dot"></span>
+          <span id="saveStatus">Auto-salvamento Ativo</span>
+        </figcaption>
+        <button id="downloadZipBtn" class="action-btn-small">📦 Baixar Código (.TXT)</button>
+        <button id="resetGameBtn" class="text-btn-danger">Reiniciar Jornada</button>
+      </footer>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+
+      <!-- PÁGINA: INÍCIO -->
+      <section class="page active" id="page-home">
+        <article class="hero-banner">
+          <header class="hero-text">
+            <span class="badge-neon">✦ UNIVERSO DIGI-AETHER</span>
+            <h1>Desperte a Béstia Digital.<br><em>Conquiste o Campeonato.</em></h1>
+            <p>Forje laços inquebráveis, cuide de monstros 2D gerados via Canvas e lute no grande torneio por turnos animado em tempo real.</p>
+            <button class="btn-primary" data-page="gb-battle">Entrar no Campeonato ↗</button>
+          </header>
+
+          <figure class="hero-visual">
+            <span class="hero-ring ring-1"></span>
+            <span class="hero-ring ring-2"></span>
+            <canvas id="heroCanvas" class="hero-monster-canvas" width="180" height="180"></canvas>
+            <figcaption class="hero-monster-card">
+              <span class="status-dot"></span>
+              <hgroup>
+                <b id="heroMonsterName">Nenhum Selecionado</b>
+                <small id="heroMonsterType">Aguardando Escolha</small>
+              </hgroup>
+            </figcaption>
+          </figure>
+        </article>
+
+        <!-- Seleção Inicial de Guardião -->
+        <section id="starterSection" class="starter-container">
+          <header class="section-title">
+            <span class="badge-neon">PRIMEIRA DECISÃO</span>
+            <h2>Escolha a sua Béstia Digital Inicial</h2>
+            <p>Selecione um dos três elementos fundamentais para iniciar sua jornada em Digi-Aether.</p>
+          </header>
+
+          <section class="starter-grid">
+            <article class="starter-card fire" data-starter="0">
+              <figure class="starter-icon"><canvas id="starterCanvas0" width="130" height="130"></canvas></figure>
+              <span class="starter-element">TIPO FOGO</span>
+              <h3>Ignidramon</h3>
+              <p>Dragão de chamas digitais com alto poder de ataque e garras incandescentes.</p>
+              <figcaption class="starter-stats">ATQ: 16 · DEF: 10 · VEL: 12</figcaption>
+              <button class="btn-choose">Adotar Ignidramon ↗</button>
+            </article>
+
+            <article class="starter-card water" data-starter="1">
+              <figure class="starter-icon"><canvas id="starterCanvas1" width="130" height="130"></canvas></figure>
+              <span class="starter-element">TIPO ÁGUA</span>
+              <h3>Aqualyx</h3>
+              <p>Ser místico das correntes marinhas. Possui excelente defesa e poder de regeneração.</p>
+              <figcaption class="starter-stats">ATQ: 12 · DEF: 15 · VEL: 11</figcaption>
+              <button class="btn-choose">Adotar Aqualyx ↗</button>
+            </article>
+
+            <article class="starter-card nature" data-starter="2">
+              <figure class="starter-icon"><canvas id="starterCanvas2" width="130" height="130"></canvas></figure>
+              <span class="starter-element">TIPO PLANTA</span>
+              <h3>Terratitan</h3>
+              <p>Béstia blindada por raízes e rocha ancestral. Alta resistência em combates longos.</p>
+              <figcaption class="starter-stats">ATQ: 13 · DEF: 16 · VEL: 8</figcaption>
+              <button class="btn-choose">Adotar Terratitan ↗</button>
+            </article>
+          </section>
+        </section>
+
+        <!-- Dashboard do Jogador -->
+        <section id="homeDashboard" hidden>
+          <section class="stats-overview">
+            <article class="dash-card">
+              <span class="dash-icon">♧</span>
+              <small>Equipe Ativa</small>
+              <b id="dashTeamSize">1 / 6</b>
+            </article>
+            <article class="dash-card">
+              <span class="dash-icon">⚔</span>
+              <small>Vitórias em Combate</small>
+              <b id="dashWins">0</b>
+            </article>
+            <article class="dash-card">
+              <span class="dash-icon">🏆</span>
+              <small>Títulos de Torneio</small>
+              <b id="dashTournaments">0</b>
+            </article>
+            <article class="dash-card">
+              <span class="dash-icon">◉</span>
+              <small>DigiDex Registrada</small>
+              <b id="dashDexCount">1 / 30</b>
+            </article>
+          </section>
+        </section>
+      </section>
+
+      <!-- PÁGINA: MINHA EQUIPE -->
+      <section class="page" id="page-team">
+        <header class="page-header">
+          <hgroup>
+            <span class="badge-neon">GUARDIÕES REGISTRADOS</span>
+            <h1>Minha Equipe Digital</h1>
+            <p>Gerencie seus monstros, confira atributos detalhados e escolha o líder de combate.</p>
+          </hgroup>
+          <mark class="badge-outline" id="teamBadgeCount">1 / 6 na equipe</mark>
+        </header>
+
+        <section class="grid-cards" id="teamCardsGrid"></section>
+      </section>
+
+      <!-- PÁGINA: CENTRO DE ADOÇÃO / INCUBADORA -->
+      <section class="page" id="page-adoption">
+        <header class="page-header">
+          <hgroup>
+            <span class="badge-neon">INCUBADORA DE OVOS</span>
+            <h1>Centro de Adoção Digital</h1>
+            <p>Choque novos ovos digitais com fragmentos para obter espécies raras em 2D!</p>
+          </hgroup>
+        </header>
+
+        <section class="adoption-container">
+          <article class="panel-box text-center">
+            <figure class="egg-visual">
+              <canvas id="eggCanvas" width="150" height="150"></canvas>
+            </figure>
+            <h2>Ovo Primordial Digi-Aether</h2>
+            <p>Pode gerar criaturas raras dos tipos Elétrico, Metal, Trevas, Luz e Digital!</p>
+            <mark class="egg-cost">Custo: ◈ 80 Fragmentos</mark>
+            <button class="btn-primary" id="hatchEggBtn">✦ Chocar Novo Ovo ↗</button>
+          </article>
+
+          <article class="panel-box">
+            <h3>Béstias Disponíveis para Adoção Direta</h3>
+            <section class="adoption-list" id="adoptionDirectList"></section>
+          </article>
+        </section>
+      </section>
+
+      <!-- PÁGINA: SANTUÁRIO TAMAGOTCHI -->
+      <section class="page" id="page-sanctuary">
+        <header class="page-header">
+          <hgroup>
+            <span class="badge-neon">CUIDADOS VIRTUAIS</span>
+            <h1>Santuário Tamagotchi</h1>
+            <p>Alimente, limpe, brinque e recupere as energias da sua béstia para fortalecer o vínculo.</p>
+          </hgroup>
+        </header>
+
+        <section id="sanctuaryView"></section>
+      </section>
+
+      <!-- PÁGINA: TREINAMENTO -->
+      <section class="page" id="page-training">
+        <header class="page-header">
+          <hgroup>
+            <span class="badge-neon">EVOLUÇÃO DE STATUS</span>
+            <h1>Centro de Treinamento</h1>
+            <p>Desenvolva permanentemente os atributos de Ataque, Defesa, Velocidade e Vida do seu parceiro.</p>
+          </hgroup>
+        </header>
+
+        <section id="trainingView"></section>
+      </section>
+
+      <!-- PÁGINA: ARENA DE COMBATE & CAMPEONATO -->
+      <section class="page" id="page-gb-battle">
+        <header class="page-header">
+          <hgroup>
+            <span class="badge-neon">ARENA MODERNA DE COMBATE</span>
+            <h1>Arena de Combate & Torneio Oficial</h1>
+            <p>Enfrente batalhas táticas por turnos animadas ou dispute a Copa Digital Aether!</p>
+          </hgroup>
+          <nav class="battle-tab-bar">
+            <button class="tab-btn active" id="tabBattleWild">⚔ Batalha Rápida</button>
+            <button class="tab-btn" id="tabBattleTournament">🏆 Campeonato Digital</button>
+          </nav>
+        </header>
+
+        <section id="gbBattleStage"></section>
+      </section>
+
+      <!-- PÁGINA: EVOLUÇÃO -->
+      <section class="page" id="page-evolution">
+        <header class="page-header">
+          <hgroup>
+            <span class="badge-neon">METAMORFOSE DIGITAL</span>
+            <h1>Câmara Evolutiva</h1>
+            <p>Alcance o nível necessário, fortaleça o vínculo e use Núcleos Evolutivos para metamorfosear.</p>
+          </hgroup>
+        </header>
+
+        <section id="evolutionView"></section>
+      </section>
+
+      <!-- PÁGINA: LOJA -->
+      <section class="page" id="page-shop">
+        <header class="page-header">
+          <hgroup>
+            <span class="badge-neon">SUPRIMENTOS DO TAMER</span>
+            <h1>Mercado Digital</h1>
+            <p>Adquira poções de cura, rações nutritivas, itens de limpeza e núcleos de evolução.</p>
+          </hgroup>
+          <mark class="currency-badge">◈ <b id="shopCoinsDisplay">150</b> Fragmentos</mark>
+        </header>
+
+        <section class="grid-cards" id="shopGrid"></section>
+      </section>
+
+      <!-- PÁGINA: INVENTÁRIO -->
+      <section class="page" id="page-inventory">
+        <header class="page-header">
+          <hgroup>
+            <span class="badge-neon">INVENTÁRIO ATIVO</span>
+            <h1>Mochila do Tamer</h1>
+            <p>Gerencie e utilize os consumíveis guardados em sua jornada.</p>
+          </hgroup>
+        </header>
+
+        <section id="inventoryContainer"></section>
+      </section>
+
+      <!-- PÁGINA: DIGIDEX -->
+      <section class="page" id="page-dex">
+        <header class="page-header">
+          <hgroup>
+            <span class="badge-neon">ENCICLOPÉDIA COMPLETA</span>
+            <h1>DigiDex Digital</h1>
+            <p>Consulte todas as 30 espécies, visualizando seus visuais 2D e vantagens elementais.</p>
+          </hgroup>
+          <mark class="badge-outline" id="dexCountBadge">0 / 30 Descobertas</mark>
+        </header>
+
+        <nav class="filter-bar">
+          <input type="text" id="dexSearchInput" placeholder="Buscar por nome ou tipo...">
+          <select id="dexTypeFilter">
+            <option value="ALL">Todos os Tipos</option>
+            <option value="Fogo">Fogo 🔥</option>
+            <option value="Água">Água 🌊</option>
+            <option value="Planta">Planta 🌿</option>
+            <option value="Elétrico">Elétrico ⚡</option>
+            <option value="Terra">Terra 🪨</option>
+            <option value="Gelo">Gelo ❄️</option>
+            <option value="Vento">Vento 🍃</option>
+            <option value="Metal">Metal ⚙️</option>
+            <option value="Luz">Luz ✨</option>
+            <option value="Trevas">Trevas 🌑</option>
+            <option value="Digital">Digital 💠</option>
+          </select>
+        </nav>
+
+        <section class="grid-cards" id="dexGrid"></section>
+      </section>
+
+    </main>
+  </section>
+
+  <!-- Notificação Toast Notificativa -->
+  <aside id="toast" class="toast-notification"></aside>
+
+</body>
+</html>
