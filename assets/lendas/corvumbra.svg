@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="corvumbra">
+ <defs><linearGradient id="body" x1=".15" y1=".02" x2=".8" y2="1"><stop stop-color="#bac7ff"/><stop offset=".35" stop-color="#59618e"/><stop offset="1" stop-color="#151a36"/></linearGradient><linearGradient id="wing" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#59618e"/><stop offset=".55" stop-color="#151a36"/><stop offset="1" stop-color="#a07bff"/></linearGradient><linearGradient id="gem" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff"/><stop offset=".4" stop-color="#a07bff"/><stop offset="1" stop-color="#151a36"/></linearGradient><filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="12"/></filter></defs>
+ <ellipse cx="258" cy="434" rx="152" ry="18" fill="#a07bff" opacity=".12"/>
+ <circle cx="255" cy="260" r="138" fill="#a07bff" filter="url(#glow)" opacity=".16"/>
+ 
+<!-- Long-beaked dusk raven with tattered cloak-feathers -->
+<path d="M186 269 Q97 200 50 99 L101 162 L116 100 L143 181 L166 132 L229 249 M304 251 L368 128 L385 183 L426 96 L428 200 L464 138 L341 292" fill="url(#wing)" stroke="#8e8fd3" stroke-width="7"/>
+<path d="M199 217 Q195 141 250 120 Q323 113 334 210 L323 318 L373 403 L308 375 L265 441 L222 373 L154 398 L198 312Z" fill="url(#body)" stroke="#a4a3e8" stroke-width="8"/>
+<path d="M224 143 L200 84 L252 113 L286 84 L312 151" fill="#242344" stroke="#8f78bb" stroke-width="6"/>
+<path d="M241 192 Q265 180 284 196 L344 228 L280 241 L252 217Z" fill="#d6c2a9" stroke="#6e6a87" stroke-width="7"/>
+<path d="M223 179 Q238 166 254 176" stroke="#e6dfff" stroke-width="8" fill="none"/>
+<circle cx="244" cy="178" r="7" fill="#ac66ef"/>
+<path d="M220 252 L187 315 L208 313 L191 353 M307 246 L347 317 L328 322 L347 366" fill="none" stroke="#9294c8" stroke-width="10"/>
+<path d="M241 384 L213 446 M276 387 L304 446" stroke="#b2a5cc" stroke-width="10" stroke-linecap="round"/>
+<path d="M174 302 Q123 266 80 280 M344 304 Q397 265 438 287" stroke="#c3aeed" stroke-width="5" fill="none"/>
+
+ </svg>

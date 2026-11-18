@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="fulgarra">
+ <defs><linearGradient id="body" x1=".15" y1=".02" x2=".8" y2="1"><stop stop-color="#fff0b1"/><stop offset=".35" stop-color="#dfad4f"/><stop offset="1" stop-color="#493936"/></linearGradient><linearGradient id="wing" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dfad4f"/><stop offset=".55" stop-color="#493936"/><stop offset="1" stop-color="#ffea43"/></linearGradient><linearGradient id="gem" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff"/><stop offset=".4" stop-color="#ffea43"/><stop offset="1" stop-color="#493936"/></linearGradient><filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="12"/></filter></defs>
+ <ellipse cx="258" cy="434" rx="152" ry="18" fill="#ffea43" opacity=".12"/>
+ <circle cx="255" cy="260" r="138" fill="#ffea43" filter="url(#glow)" opacity=".16"/>
+ 
+<!-- Thunder rhinoceros beetle, armored elytra and forked horn -->
+<path d="M198 330 Q123 307 145 223 Q164 154 259 155 Q348 152 372 221 Q399 325 314 353Z" fill="url(#body)" stroke="#3f2839" stroke-width="10"/>
+<path d="M243 166 Q231 224 242 345 M282 163 Q292 235 281 346" stroke="#fff2b4" stroke-width="6" fill="none"/>
+<path d="M173 241 L74 202 L89 173 L189 204 M161 296 L65 319 L72 352 L182 326 M331 213 L436 168 L447 194 L356 243 M344 307 L445 338 L435 368 L322 336" fill="#463e40" stroke="#f1ce66" stroke-width="8" stroke-linejoin="round"/>
+<path d="M235 186 L205 93 L246 116 L258 52 L275 120 L312 91 L288 187Z" fill="url(#gem)" stroke="#fffacb" stroke-width="8"/>
+<path d="M213 284 Q222 308 246 311 L279 310 Q319 296 324 281" fill="#5b5147" stroke="#281e35" stroke-width="6"/>
+<ellipse cx="214" cy="275" rx="17" ry="12" fill="#fff5be"/><ellipse cx="308" cy="275" rx="17" ry="12" fill="#fff5be"/><circle cx="217" cy="276" r="7" fill="#36262a"/><circle cx="308" cy="276" r="7" fill="#36262a"/>
+<path d="M146 383 L188 361 M365 365 L400 385" stroke="#7e674c" stroke-width="22" stroke-linecap="round"/>
+<path d="M70 105 L106 140 L84 168 L141 204 M422 98 L399 136 L432 155 L379 187" fill="none" stroke="#ffdf3c" stroke-width="10" stroke-linejoin="bevel"/>
+
+ </svg>

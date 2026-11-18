@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="velmora">
+ <defs><linearGradient id="body" x1=".15" y1=".02" x2=".8" y2="1"><stop stop-color="#c1efff"/><stop offset=".35" stop-color="#5599a5"/><stop offset="1" stop-color="#183446"/></linearGradient><linearGradient id="wing" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5599a5"/><stop offset=".55" stop-color="#183446"/><stop offset="1" stop-color="#aa7dff"/></linearGradient><linearGradient id="gem" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff"/><stop offset=".4" stop-color="#aa7dff"/><stop offset="1" stop-color="#183446"/></linearGradient><filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="12"/></filter></defs>
+ <ellipse cx="258" cy="434" rx="152" ry="18" fill="#aa7dff" opacity=".12"/>
+ <circle cx="255" cy="260" r="138" fill="#aa7dff" filter="url(#glow)" opacity=".16"/>
+ 
+<!-- Floating masked spectral jellyfish with draping silk tendrils -->
+<path d="M132 248 Q119 118 215 92 Q301 45 368 154 Q395 201 375 263 Q347 312 259 303 Q162 309 132 248Z" fill="url(#body)" stroke="#a9dfff" stroke-width="8"/>
+<path d="M143 235 Q207 260 264 253 Q331 243 376 224 L359 302 Q326 327 269 321 Q208 326 163 299Z" fill="#255266" opacity=".9"/>
+<path d="M184 299 Q147 373 125 454 M215 322 Q194 379 224 462 M262 325 Q279 386 256 475 M311 322 Q344 388 330 459 M353 297 Q399 359 405 451" stroke="#7bbcd5" stroke-width="17" stroke-linecap="round" fill="none" opacity=".85"/>
+<path d="M191 179 Q210 156 238 176 L246 216 L217 226 Q185 215 191 179Z M283 179 Q309 156 328 175 Q341 210 315 224 L278 215Z" fill="#dff6ff"/>
+<path d="M204 192 Q220 183 232 192 M295 192 Q310 182 326 195" stroke="#4c3a87" stroke-width="8" fill="none"/>
+<path d="M242 236 Q258 248 274 235" stroke="#a8e7fa" stroke-width="6" fill="none"/>
+<path d="M239 104 Q258 51 289 93 L277 130 L255 150Z" fill="url(#gem)" stroke="#e1d8ff" stroke-width="6"/>
+<circle cx="168" cy="166" r="10" fill="#c4ecff" opacity=".75"/><circle cx="354" cy="152" r="13" fill="#c4ecff" opacity=".72"/>
+
+ </svg>

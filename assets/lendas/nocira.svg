@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="nocira">
+ <defs><linearGradient id="body" x1=".15" y1=".02" x2=".8" y2="1"><stop stop-color="#d9b8fe"/><stop offset=".35" stop-color="#8368b1"/><stop offset="1" stop-color="#1d1d3a"/></linearGradient><linearGradient id="wing" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8368b1"/><stop offset=".55" stop-color="#1d1d3a"/><stop offset="1" stop-color="#a866ff"/></linearGradient><linearGradient id="gem" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff"/><stop offset=".4" stop-color="#a866ff"/><stop offset="1" stop-color="#1d1d3a"/></linearGradient><filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="12"/></filter></defs>
+ <ellipse cx="258" cy="434" rx="152" ry="18" fill="#a866ff" opacity=".12"/>
+ <circle cx="255" cy="260" r="138" fill="#a866ff" filter="url(#glow)" opacity=".16"/>
+ 
+<!-- Eight legged shadow spider, geometric amethyst abdomen -->
+<path d="M202 267 L122 195 L68 130 M208 287 L103 274 L54 249 M209 315 L124 363 L78 432 M303 262 L390 192 L449 114 M307 293 L421 273 L473 248 M300 321 L396 369 L435 441" stroke="#4c416b" stroke-width="25" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M220 310 L160 411 M295 309 L348 411" stroke="#6a5188" stroke-width="23" stroke-linecap="round"/>
+<ellipse cx="264" cy="268" rx="120" ry="109" fill="url(#body)" stroke="#9e82ce" stroke-width="10"/>
+<path d="M264 145 L316 209 L298 303 L266 370 L216 295 L203 210Z" fill="url(#gem)" stroke="#e5bcff" stroke-width="7"/>
+<path d="M203 276 Q239 227 258 272 Q285 222 327 274 L306 333 Q262 366 222 338Z" fill="#191932"/>
+<circle cx="216" cy="257" r="14" fill="#d2a0ff"/><circle cx="306" cy="257" r="14" fill="#d2a0ff"/><circle cx="241" cy="296" r="9" fill="#e9b8ff"/><circle cx="278" cy="296" r="9" fill="#e9b8ff"/>
+<path d="M245 334 L251 357 M275 336 L270 361" stroke="#e5c2ff" stroke-width="9"/>
+<path d="M260 165 L260 113 L230 83 M263 113 L292 75" stroke="#8353d4" stroke-width="6" fill="none"/>
+
+ </svg>

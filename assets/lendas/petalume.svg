@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="petalume">
+ <defs><linearGradient id="body" x1=".15" y1=".02" x2=".8" y2="1"><stop stop-color="#ffe7f0"/><stop offset=".35" stop-color="#ee96c8"/><stop offset="1" stop-color="#424661"/></linearGradient><linearGradient id="wing" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ee96c8"/><stop offset=".55" stop-color="#424661"/><stop offset="1" stop-color="#c2ffb5"/></linearGradient><linearGradient id="gem" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff"/><stop offset=".4" stop-color="#c2ffb5"/><stop offset="1" stop-color="#424661"/></linearGradient><filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="12"/></filter></defs>
+ <ellipse cx="258" cy="434" rx="152" ry="18" fill="#c2ffb5" opacity=".12"/>
+ <circle cx="255" cy="260" r="138" fill="#c2ffb5" filter="url(#glow)" opacity=".16"/>
+ 
+<!-- Elegant fairy flower deer with leaf antlers -->
+<path d="M230 262 Q197 324 179 385 L223 392 L246 340 M289 286 L318 404 L351 398 L333 281" stroke="#52684e" stroke-width="26" stroke-linecap="round" fill="none"/>
+<path d="M153 267 Q184 207 254 219 Q324 218 357 286 L334 346 Q267 374 198 349 L155 315Z" fill="url(#body)" stroke="#725169" stroke-width="9"/>
+<path d="M220 236 Q185 214 177 176 Q183 141 210 140 L215 93 L240 133 L271 129 L290 91 L297 143 Q340 143 337 185 Q331 230 286 247Z" fill="#c388a6" stroke="#fbe3e7" stroke-width="7"/>
+<path d="M210 153 Q151 97 128 63 Q185 80 206 125 M284 150 Q352 99 376 71 Q333 126 299 168" stroke="#658d60" stroke-width="15" fill="none" stroke-linecap="round"/>
+<path d="M147 100 Q103 85 106 42 Q153 43 171 95 M355 107 Q392 77 411 91 Q398 132 362 139" fill="#9ded8d" stroke="#e9ffae" stroke-width="5"/>
+<path d="M180 168 Q135 126 118 165 Q134 208 185 199 M318 170 Q371 123 398 172 Q368 210 314 202" fill="#f5b1d1" stroke="#fff0fa" stroke-width="5"/>
+<ellipse cx="225" cy="189" rx="13" ry="16" fill="#fbf3ff"/><ellipse cx="294" cy="189" rx="13" ry="16" fill="#fbf3ff"/><circle cx="228" cy="190" r="6" fill="#513b5a"/><circle cx="298" cy="190" r="6" fill="#513b5a"/>
+<path d="M255 208 Q267 213 281 206" stroke="#f7e2fb" stroke-width="5" fill="none"/>
+<path d="M240 320 Q259 346 279 319" stroke="#f8dbf7" stroke-width="10" fill="none"/>
+
+ </svg>

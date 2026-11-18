@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="cristrix">
+ <defs><linearGradient id="body" x1=".15" y1=".02" x2=".8" y2="1"><stop stop-color="#d1ffe0"/><stop offset=".35" stop-color="#6dc9a1"/><stop offset="1" stop-color="#243d34"/></linearGradient><linearGradient id="wing" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6dc9a1"/><stop offset=".55" stop-color="#243d34"/><stop offset="1" stop-color="#69e5ce"/></linearGradient><linearGradient id="gem" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff"/><stop offset=".4" stop-color="#69e5ce"/><stop offset="1" stop-color="#243d34"/></linearGradient><filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="12"/></filter></defs>
+ <ellipse cx="258" cy="434" rx="152" ry="18" fill="#69e5ce" opacity=".12"/>
+ <circle cx="255" cy="260" r="138" fill="#69e5ce" filter="url(#glow)" opacity=".16"/>
+ 
+<!-- Spined crystal gecko, low lizard geometry -->
+<path d="M75 299 Q12 286 36 237 Q60 206 95 245 Q115 268 151 266 L255 276 Q316 267 345 281 L420 268 Q454 271 462 306 Q471 354 429 367 L345 373 L236 353 L130 358 Q96 344 75 299Z" fill="url(#body)"/>
+<path d="M96 303 Q44 305 42 348 Q43 378 75 376" fill="none" stroke="#638577" stroke-width="27" stroke-linecap="round"/>
+<path d="M128 318 Q108 359 86 382 L115 387 L143 359M342 334 L360 400 L384 397 L376 333M281 331 L269 406 L300 403 L307 345" stroke="#1b3531" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M125 270 L155 180 L189 252 L219 147 L245 247 L286 165 L319 262 L355 207 L380 282" fill="url(#gem)" stroke="#bafef6" stroke-width="6" stroke-linejoin="round"/>
+<path d="M359 266 Q420 220 450 270 L458 302 Q434 328 404 319 L362 307Z" fill="#3b6a59" stroke="#112c2c" stroke-width="8"/>
+<path d="M414 279 Q439 267 447 286 Q438 300 418 296Z" fill="#e7ffde"/><circle cx="432" cy="286" r="7" fill="#143a39"/>
+<path d="M451 308 Q433 326 409 314" stroke="#b0f8ba" stroke-width="6" fill="none"/>
+<path d="M159 321 Q226 346 334 324" stroke="#9cf6c5" stroke-width="9" stroke-linecap="round" fill="none" opacity=".8"/>
+<path d="M166 209 L177 255 L188 214 M225 183 L239 246 L250 197 M280 192 L292 261" fill="none" stroke="white" stroke-width="5" opacity=".8"/>
+
+ </svg>

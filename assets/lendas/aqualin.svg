@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 900" role="img" aria-label="Aqualin, Lenda aquática azul de barbatanas e cauda ondulante">
+<defs>
+ <linearGradient id="body" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#8af4f4"/><stop offset=".35" stop-color="#379cd8"/><stop offset=".76" stop-color="#175389"/><stop offset="1" stop-color="#0c315f"/></linearGradient>
+ <linearGradient id="fin" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#b7ffff"/><stop offset=".5" stop-color="#38cce5"/><stop offset="1" stop-color="#3c6ada"/></linearGradient>
+ <linearGradient id="belly" x1="0" x2=".3" y1="0" y2="1"><stop stop-color="#fffafa"/><stop offset="1" stop-color="#a1e4ed"/></linearGradient>
+ <linearGradient id="tail" x1="0" x2="1" y1="0" y2=".4"><stop stop-color="#1560a0"/><stop offset=".6" stop-color="#14b9dc"/><stop offset="1" stop-color="#b1fff7"/></linearGradient>
+ <radialGradient id="shine"><stop stop-color="#efffff" stop-opacity=".95"/><stop offset="1" stop-color="#37f3ff" stop-opacity="0"/></radialGradient>
+ <filter id="shadow"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
+<ellipse cx="510" cy="814" rx="290" ry="33" fill="#091e38" opacity=".19" filter="url(#shadow)"/>
+<!-- finned tail makes silhouette unmistakable -->
+<path d="M355 578 C160 540 134 379 245 293 C160 307 95 293 62 231 C81 375 45 410 33 491 C14 649 144 715 352 688 Z" fill="url(#tail)" stroke="#123862" stroke-width="14"/>
+<path d="M172 328 C129 438 139 543 304 608" fill="none" stroke="#d7ffff" stroke-width="19" stroke-linecap="round" opacity=".62"/>
+<path d="M235 310 Q179 265 207 192 Q262 234 284 317" fill="url(#fin)" stroke="#176c9c" stroke-width="12"/>
+<path d="M186 473 Q79 418 59 357 Q25 481 96 557" fill="url(#fin)" stroke="#14517e" stroke-width="11"/>
+<path d="M197 620 Q94 630 82 734 Q172 688 259 704" fill="url(#fin)" stroke="#14517e" stroke-width="11"/>
+<!-- dorsal crest -->
+<path d="M395 365 C345 264 368 223 405 169 Q425 263 468 282 Q481 195 529 142 Q545 244 572 308 C519 327 446 361 395 365Z" fill="url(#fin)" stroke="#13557f" stroke-width="13"/>
+<path d="M421 293 Q408 248 404 214 M489 283 Q510 235 526 190" stroke="#dbfffd" stroke-width="9" fill="none" opacity=".7"/>
+<!-- rear legs -->
+<path d="M360 618 C304 633 279 699 300 763 Q351 797 421 765 L472 689Z" fill="url(#body)" stroke="#133766" stroke-width="17"/>
+<path d="M311 758 Q334 771 353 757 Q379 784 402 758 Q425 781 444 749" fill="none" stroke="#a3f6f8" stroke-width="11" stroke-linecap="round"/>
+<!-- torso -->
+<path d="M316 517 Q332 391 472 357 C616 325 733 414 748 562 Q773 688 674 743 C559 788 409 743 344 671Z" fill="url(#body)" stroke="#16345e" stroke-width="20"/>
+<path d="M466 408 Q501 381 543 399 Q646 458 651 649 Q633 726 556 726 Q468 691 435 593 Q412 508 466 408Z" fill="url(#belly)" stroke="#70cbe2" stroke-width="9"/>
+<path d="M355 560 Q407 531 428 588 M355 606 Q399 587 423 640" fill="none" stroke="#b0ffff" stroke-width="12" opacity=".7"/>
+<!-- front arms legs -->
+<path d="M656 597 Q718 572 769 625 Q790 664 783 736 Q777 783 717 784 L664 749Z" fill="url(#body)" stroke="#15345c" stroke-width="18"/>
+<path d="M714 776 Q721 752 736 772 Q750 749 759 769 Q770 749 781 760" stroke="#e1ffff" stroke-width="13" fill="none" stroke-linecap="round"/>
+<path d="M458 642 Q520 632 539 699 Q553 760 507 790 L419 783 Q395 754 414 701Z" fill="url(#body)" stroke="#174370" stroke-width="16"/>
+<path d="M424 781 Q445 755 456 783 Q475 759 489 780" fill="none" stroke="#d6ffff" stroke-width="12"/>
+<!-- head separate round streamlined with muzzle -->
+<path d="M552 270 C670 214 824 271 863 397 C907 522 805 601 690 604 C564 608 506 509 520 397 C524 339 535 302 552 270Z" fill="url(#body)" stroke="#122f5b" stroke-width="19"/>
+<!-- external frills as signature -->
+<path d="M555 376 Q463 323 456 228 Q541 257 595 332Z" fill="url(#fin)" stroke="#185e89" stroke-width="14"/>
+<path d="M543 417 Q448 409 409 335 Q512 347 577 376Z" fill="url(#fin)" stroke="#185e89" stroke-width="13"/>
+<path d="M840 381 Q939 307 957 264 Q955 375 880 437Z" fill="url(#fin)" stroke="#154d79" stroke-width="15"/>
+<path d="M850 442 Q943 419 965 365 Q952 474 875 491Z" fill="url(#fin)" stroke="#154d79" stroke-width="12"/>
+<path d="M467 256 Q503 300 540 325 M424 354 Q495 378 539 392 M910 333 Q873 372 865 400" stroke="#d5fffd" stroke-width="9" fill="none"/>
+<!-- cream muzzle, large blue-lidded eye -->
+<path d="M651 454 Q718 416 832 462 Q883 487 869 526 Q818 581 714 570 Q644 568 624 512Z" fill="url(#belly)" stroke="#137090" stroke-width="9"/>
+<path d="M698 388 Q735 337 790 356 Q833 379 826 424 Q782 471 729 450 Q698 433 698 388Z" fill="#eefaff" stroke="#15476c" stroke-width="12"/>
+<ellipse cx="774" cy="410" rx="30" ry="36" fill="#0e385b"/><ellipse cx="781" cy="403" rx="12" ry="17" fill="#a4fcff"/><circle cx="787" cy="400" r="7" fill="white"/>
+<path d="M697 379 Q759 333 817 378" fill="none" stroke="#14507a" stroke-width="17" stroke-linecap="round"/>
+<path d="M818 478 Q849 473 852 490 Q840 508 823 506Z" fill="#194d71"/>
+<path d="M768 528 Q811 553 850 514" fill="none" stroke="#286783" stroke-width="10" stroke-linecap="round"/>
+<circle cx="682" cy="495" r="20" fill="#fdacd4" opacity=".58"/>
+<path d="M566 345 Q599 317 634 327" fill="none" stroke="#c5ffff" stroke-width="11" stroke-linecap="round" opacity=".8"/>
+<!-- luminous pearls on chest -->
+<ellipse cx="578" cy="552" rx="24" ry="18" fill="#bafff5" opacity=".95"/><ellipse cx="566" cy="544" rx="6" ry="5" fill="white"/>
+<circle cx="174" cy="230" r="15" fill="#92ffff" opacity=".75"/><circle cx="141" cy="168" r="8" fill="#e0ffff"/><circle cx="936" cy="568" r="15" fill="#7eeaff" opacity=".7"/><circle cx="902" cy="606" r="7" fill="#dcffff"/>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="faiscote">
+ <defs><linearGradient id="body" x1=".15" y1=".02" x2=".8" y2="1"><stop stop-color="#ffedac"/><stop offset=".35" stop-color="#f7c944"/><stop offset="1" stop-color="#404553"/></linearGradient><linearGradient id="wing" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7c944"/><stop offset=".55" stop-color="#404553"/><stop offset="1" stop-color="#a0eaff"/></linearGradient><linearGradient id="gem" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff"/><stop offset=".4" stop-color="#a0eaff"/><stop offset="1" stop-color="#404553"/></linearGradient><filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="12"/></filter></defs>
+ <ellipse cx="258" cy="434" rx="152" ry="18" fill="#a0eaff" opacity=".12"/>
+ <circle cx="255" cy="260" r="138" fill="#a0eaff" filter="url(#glow)" opacity=".16"/>
+ 
+<!-- Long-legged lightning hare with giant forked ears -->
+<path d="M220 210 L169 36 Q202 48 250 169 L271 30 Q303 84 290 215" fill="url(#body)" stroke="#e7c375" stroke-width="8"/>
+<path d="M201 182 L177 79 L235 180 M272 178 L278 78 L285 181" fill="#ffec9d"/>
+<path d="M193 250 Q187 209 233 190 Q307 174 336 248 L328 339 Q304 388 235 373 Q192 342 193 250" fill="url(#body)" stroke="#6d5144" stroke-width="9"/>
+<path d="M215 344 Q170 394 139 403 L160 421 L242 388 M306 355 Q342 384 375 416 L403 396 L345 328" fill="#55485b" stroke="#d5b35a" stroke-width="7"/>
+<path d="M194 289 L148 251 L118 283 L173 318 M329 295 L389 264 L411 297 L339 324" fill="#675565" stroke="#d9c05b" stroke-width="8"/>
+<path d="M198 217 L145 220 L178 184 L153 151 L225 179 M296 203 L363 180 L338 159 L387 150 L328 236" fill="url(#gem)" stroke="#f7f3ba" stroke-width="5"/>
+<ellipse cx="225" cy="258" rx="13" ry="19" fill="#f9f2d8"/><ellipse cx="302" cy="253" rx="13" ry="19" fill="#f9f2d8"/><circle cx="229" cy="260" r="7" fill="#332d38"/><circle cx="303" cy="255" r="7" fill="#332d38"/>
+<path d="M245 305 L263 315 L276 303" stroke="#352b38" stroke-width="7" fill="none"/>
+<path d="M81 170 L121 193 L104 217 L147 242 M380 82 L355 131 L393 141" fill="none" stroke="#fce857" stroke-width="10"/>
+
+ </svg>

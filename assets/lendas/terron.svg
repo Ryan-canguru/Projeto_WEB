@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 900" role="img" aria-label="Terron, guardião quadrúpede de rocha e musgo com carapaça de cristais">
+<defs>
+ <linearGradient id="skin" x1=".1" x2="1" y1="0" y2="1"><stop stop-color="#c4d789"/><stop offset=".46" stop-color="#7f9d54"/><stop offset="1" stop-color="#405735"/></linearGradient>
+ <linearGradient id="rock" x1=".1" x2=".9" y1="0" y2="1"><stop stop-color="#b9a997"/><stop offset=".43" stop-color="#746e64"/><stop offset="1" stop-color="#373d3e"/></linearGradient>
+ <linearGradient id="shell" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#7d8f63"/><stop offset=".6" stop-color="#4d5f46"/><stop offset="1" stop-color="#263e32"/></linearGradient>
+ <linearGradient id="gem" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#eaffb6"/><stop offset=".5" stop-color="#a8d47a"/><stop offset="1" stop-color="#568b65"/></linearGradient>
+ <filter id="ground"><feGaussianBlur stdDeviation="19"/></filter>
+</defs>
+<ellipse cx="510" cy="800" rx="360" ry="40" fill="#0e2019" opacity=".22" filter="url(#ground)"/>
+<!-- rocky stump tail -->
+<path d="M217 540 Q112 519 88 612 L157 662 L251 647Z" fill="url(#rock)" stroke="#303d35" stroke-width="16"/>
+<!-- back legs two pillars -->
+<path d="M286 565 Q196 590 195 716 Q188 798 256 800 L353 796 Q395 751 380 676Z" fill="url(#skin)" stroke="#30442f" stroke-width="21"/>
+<path d="M199 748 L246 716 L284 759 L305 715 L364 761 L350 807 L208 810Z" fill="url(#rock)" stroke="#3f473c" stroke-width="15"/>
+<!-- giant asymmetrical mountain shell -->
+<path d="M229 583 C189 441 289 298 398 270 L495 212 Q612 232 682 335 L774 409 Q806 500 749 627 Q607 726 381 694 Q279 667 229 583Z" fill="url(#shell)" stroke="#2b3930" stroke-width="26"/>
+<path d="M252 504 L306 363 L409 278 L471 390 L416 530 L322 579Z" fill="url(#rock)" stroke="#41423b" stroke-width="17"/>
+<path d="M418 286 L510 209 L624 269 L590 402 L478 410Z" fill="url(#rock)" stroke="#3d433e" stroke-width="17"/>
+<path d="M633 297 L719 365 L775 456 L667 474 L590 402Z" fill="url(#rock)" stroke="#434641" stroke-width="17"/>
+<path d="M330 566 L428 508 L475 413 L595 405 L666 479 L603 618 L445 666Z" fill="#59694f" stroke="#344133" stroke-width="18"/>
+<path d="M304 362 Q353 328 402 322 M491 240 L526 367 M707 395 L616 421" stroke="#d8ceb1" stroke-width="11" opacity=".6" fill="none"/>
+<!-- uneven moss crown, leaves -->
+<path d="M269 360 Q230 280 290 276 Q297 205 356 246 Q377 194 432 230 Q459 180 516 229 Q574 190 612 255 Q675 234 708 304 Q764 292 757 363 Q681 355 646 327 Q583 365 520 316 Q462 354 401 320 Q334 359 269 360Z" fill="#527b3c" stroke="#305435" stroke-width="17"/>
+<path d="M281 331 Q289 273 337 268 M416 292 Q432 230 475 235 M568 294 Q598 242 637 277 M675 334 Q699 302 733 315" stroke="#91bc51" stroke-width="14" fill="none" stroke-linecap="round"/>
+<path d="M372 220 Q346 162 302 155 Q310 220 360 250Z M528 218 Q544 154 592 145 Q589 220 542 251Z M657 281 Q689 223 742 224 Q717 283 671 299Z" fill="url(#gem)" stroke="#49723d" stroke-width="10"/>
+<!-- earth crystal on shell -->
+<path d="M467 217 L504 135 L554 216 L527 277 L481 261Z" fill="url(#gem)" stroke="#466d45" stroke-width="12"/><path d="M503 151 L501 253 L533 216" fill="none" stroke="#f4ffe0" stroke-width="9" opacity=".72"/>
+<!-- chest body -->
+<path d="M320 582 Q386 534 496 565 L668 548 Q762 568 785 670 Q793 746 664 756 L432 749 Q340 732 313 675Z" fill="url(#skin)" stroke="#354931" stroke-width="21"/>
+<path d="M509 620 Q570 666 651 652" stroke="#d7e49f" stroke-width="18" opacity=".5" fill="none"/>
+<!-- heavy front pillar left -->
+<path d="M395 665 Q414 634 488 656 L528 735 Q541 789 490 819 L361 809 Q335 758 357 700Z" fill="url(#skin)" stroke="#354a31" stroke-width="21"/>
+<path d="M357 758 L409 735 L431 774 L465 729 L508 769 L485 826 L365 825Z" fill="url(#rock)" stroke="#444640" stroke-width="15"/>
+<!-- right front pillar -->
+<path d="M695 617 Q770 614 799 660 L833 771 Q844 814 797 826 L702 821 Q653 781 667 713Z" fill="url(#skin)" stroke="#3b4c30" stroke-width="21"/>
+<path d="M682 771 L738 741 L762 775 L798 748 L834 793 L804 834 L705 833Z" fill="url(#rock)" stroke="#45483e" stroke-width="15"/>
+<!-- head and neck angular turtle-like -->
+<path d="M672 410 Q736 339 845 358 Q942 382 953 477 Q964 558 900 603 L790 642 Q707 626 675 553 Q647 481 672 410Z" fill="url(#skin)" stroke="#34482f" stroke-width="23"/>
+<path d="M789 536 Q863 496 956 507 L950 564 Q908 621 826 613 Q784 597 789 536Z" fill="#d4d5a0" stroke="#48673a" stroke-width="13"/>
+<!-- armored forehead \ -->
+<path d="M692 421 L766 360 L855 371 L822 436 L737 463Z" fill="url(#rock)" stroke="#424941" stroke-width="17"/>
+<path d="M840 372 L911 400 L944 450 L856 445 L822 435Z" fill="url(#rock)" stroke="#484d41" stroke-width="15"/>
+<path d="M763 371 L799 402 L780 449" stroke="#d6c7a8" stroke-width="9" fill="none"/>
+<!-- fierce friendly eye -->
+<path d="M815 475 Q858 440 899 468 Q896 514 850 522 Q818 509 815 475Z" fill="#fff3c8" stroke="#3d5434" stroke-width="12"/>
+<ellipse cx="860" cy="487" rx="16" ry="24" fill="#52752c"/><ellipse cx="862" cy="487" rx="7" ry="19" fill="#1a3024"/><circle cx="868" cy="477" r="6" fill="#fff"/>
+<path d="M799 457 Q849 429 901 455" stroke="#50634a" stroke-width="16" stroke-linecap="round" fill="none"/>
+<path d="M911 547 Q925 549 936 536" stroke="#69764b" stroke-width="9" fill="none"/>
+<path d="M840 571 Q888 581 916 557" stroke="#536945" stroke-width="8" fill="none" stroke-linecap="round"/>
+<!-- ancient runes engraved in shell -->
+<path d="M437 516 L467 470 L490 521 L515 489 L535 530 M554 547 L578 508 L604 549" fill="none" stroke="#afd28a" stroke-width="9" opacity=".68" stroke-linecap="round"/>
+<circle cx="385" cy="277" r="12" fill="#a9d876"/><circle cx="649" cy="281" r="8" fill="#bbde77"/>
+</svg>

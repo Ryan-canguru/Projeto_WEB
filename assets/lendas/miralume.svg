@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="miralume">
+ <defs><linearGradient id="body" x1=".15" y1=".02" x2=".8" y2="1"><stop stop-color="#f2eaff"/><stop offset=".35" stop-color="#a88de8"/><stop offset="1" stop-color="#3a3764"/></linearGradient><linearGradient id="wing" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a88de8"/><stop offset=".55" stop-color="#3a3764"/><stop offset="1" stop-color="#f7ed95"/></linearGradient><linearGradient id="gem" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff"/><stop offset=".4" stop-color="#f7ed95"/><stop offset="1" stop-color="#3a3764"/></linearGradient><filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="12"/></filter></defs>
+ <ellipse cx="258" cy="434" rx="152" ry="18" fill="#f7ed95" opacity=".12"/>
+ <circle cx="255" cy="260" r="138" fill="#f7ed95" filter="url(#glow)" opacity=".16"/>
+ 
+<!-- Giant luminous silk moth with four scalloped wings -->
+<path d="M242 254 Q149 60 62 104 Q36 223 211 290 Q107 274 75 379 Q130 446 235 333Z" fill="url(#wing)" stroke="#eedcff" stroke-width="10"/>
+<path d="M280 259 Q359 59 458 103 Q485 219 306 289 Q397 279 443 378 Q380 455 287 336Z" fill="url(#wing)" stroke="#eedcff" stroke-width="10"/>
+<path d="M247 198 Q244 155 218 106 M271 197 Q290 147 318 103" stroke="#e8cdff" stroke-width="9" fill="none" stroke-linecap="round"/>
+<path d="M228 204 Q250 174 276 203 L292 305 Q271 392 255 402 Q235 344 223 279Z" fill="url(#body)" stroke="#efdaff" stroke-width="8"/>
+<circle cx="178" cy="198" r="35" fill="#f5e5a5" opacity=".78"/><circle cx="337" cy="198" r="35" fill="#f5e5a5" opacity=".78"/><circle cx="131" cy="346" r="21" fill="#e3d5ff"/><circle cx="384" cy="346" r="21" fill="#e3d5ff"/>
+<path d="M243 231 Q254 220 269 234" stroke="#2b2757" stroke-width="9" fill="none"/>
+<circle cx="242" cy="252" r="7" fill="#ffed8b"/><circle cx="272" cy="252" r="7" fill="#ffed8b"/>
+<path d="M247 337 Q255 379 266 338" fill="#ffe477"/>
+<path d="M118 150 L179 226 L226 249 M397 149 L334 226 L284 249" stroke="#ece3ff" stroke-width="7" fill="none" opacity=".8"/>
+
+ </svg>
