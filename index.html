@@ -17,7 +17,8 @@
   <div id="app" class="app">
     <header class="topbar" id="topbar" hidden>
       <button class="brand-compact" type="button" data-route="hub" aria-label="Voltar ao Observatório"><span class="brand-sigil">✧</span><span>DAWN <i>OF</i> LEGENDS</span></button>
-      <nav class="primary-nav" aria-label="Navegação principal">
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Abrir menu de navegação"><span aria-hidden="true">☰</span> Menu</button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Navegação principal">
         <button type="button" class="nav-link" data-route="hub"><span class="nav-icon">⌂</span>Observatório</button>
         <button type="button" class="nav-link" data-route="adoption"><span class="nav-icon">✦</span>Adoção</button>
         <button type="button" class="nav-link" data-route="sanctuary"><span class="nav-icon">❀</span>Santuário</button>
@@ -101,7 +102,7 @@
       <section class="view view-collection" id="view-collection" data-view="collection" hidden aria-labelledby="collection-title">
         <div class="content-scene scene-container">
           <div class="page-heading"><span class="overline">REGISTROS DA PRIMEIRA LUZ</span><h2 id="collection-title" tabindex="-1">Arquivo das Lendas</h2><p>Suas companheiras de jornada, seus atributos e a equipe que enfrentará as próximas aventuras.</p></div>
-          <div class="collection-ribbon"><strong id="collection-count">1 / 66 espécies</strong><span>Equipe de até 3 Lendas · clique para selecionar ou remover</span></div>
+          <div class="collection-ribbon"><strong id="collection-count">1 / 30 espécies</strong><span>Equipe de até 3 Lendas · clique para selecionar ou remover</span></div>
           <div class="collection-list" id="collection-list"></div>
           <div class="future-note"><span class="future-rune">♜</span><div><strong>66 espécies planejadas · 198 formas</strong><p>30 espécies jogáveis, cada uma com três estágios que modificam atributos, aparência e habilidades. A evolução ocorre manualmente nos níveis 18 e 35.</p></div></div>
         </div>

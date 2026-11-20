@@ -85,3 +85,547 @@ body.high-contrast{--muted:#f1f5fa;--border:rgba(255,226,164,.85)}body.high-cont
 @keyframes evolution-bloom{0%{filter:brightness(1);transform:scale(1)}22%{filter:brightness(2.1) drop-shadow(0 0 20px #fff5b9);transform:scale(1.035)}48%{filter:brightness(3) drop-shadow(0 0 45px #ffe6ad);transform:scale(1.09)}78%{filter:brightness(1.4) drop-shadow(0 0 25px #f6b05d);transform:scale(1.02)}100%{filter:brightness(1);transform:scale(1)}}
 .sanctuary-portrait.evolution-bloom{animation:evolution-bloom 1.7s ease both}
 body.reduced-motion .sanctuary-portrait.evolution-bloom{animation:none;box-shadow:0 0 0 2px #f6d898}
+
+/* =======================================================================
+   Refinamento responsivo — sem alterar a identidade visual ou as mecânicas.
+   Todos os tamanhos utilizam os mesmos componentes e os mesmos assets.
+   ======================================================================= */
+:root{--dol-mobile-header:104px}
+img,svg,canvas,video{max-width:100%}
+img{height:auto}
+.scene-container,.content-scene,.starter-layout,.sanctuary-layout,.battle-stage,
+.collection-list,.adoption-gallery,.tour-grid,.quest-grid,.battle-modes{min-width:0}
+.scene-container>*{min-width:0}
+.mobile-menu-toggle{display:none}
+
+@media (min-width:701px) and (max-width:1180px){
+ .topbar{gap:10px;padding-inline:clamp(11px,1.8vw,24px)}
+ .brand-compact{font-size:clamp(.77rem,1.15vw,.96rem)}
+ .topbar-right{gap:7px;flex-shrink:0}
+ .currency{padding:4px 7px;min-width:0}
+ .nav-link{white-space:nowrap}
+ .primary-nav{overflow-x:auto;scrollbar-width:thin;scrollbar-color:rgba(232,196,135,.6) transparent;min-width:0}
+ .primary-nav .nav-link{flex:0 0 auto;min-width:80px}
+ .view:not(.view-intro){padding-top:clamp(125px,13vw,145px)}
+ .starter-layout,.sanctuary-layout,.battle-stage{min-width:0}
+ .hub-story{max-width:min(330px,100%)}
+}
+
+@media(max-width:700px){
+ :root{--dol-mobile-header:105px}
+ .topbar{
+   display:grid;grid-template-columns:minmax(0,1fr) auto;
+   grid-template-areas:"brand menu" "resources resources";
+   align-content:center;row-gap:7px;column-gap:10px;
+   padding:10px max(12px,env(safe-area-inset-right)) 9px max(12px,env(safe-area-inset-left));
+   min-height:var(--dol-mobile-header);height:auto;flex-wrap:initial;
+ }
+ .brand-compact{grid-area:brand;font-size:clamp(.76rem,3.4vw,.98rem);min-width:0;max-width:100%;white-space:nowrap}
+ .brand-sigil{font-size:1.45rem}
+ .mobile-menu-toggle{
+   grid-area:menu;display:inline-flex;align-items:center;justify-content:center;gap:7px;
+   padding:6px 12px;min-height:38px;
+   border:1px solid rgba(232,196,135,.55);border-radius:9px;
+   background:linear-gradient(150deg,#263e58,#101f36);color:var(--gold-2);
+   font-weight:700;font-size:.86rem;
+ }
+ .mobile-menu-toggle span{font-size:1.12rem;line-height:1}
+ .topbar-right{grid-area:resources;justify-content:flex-end;width:100%;min-width:0;gap:clamp(5px,2.5vw,12px);margin:0}
+ .topbar-right .currency{padding:4px 8px;min-width:0;min-height:31px;flex-shrink:0}
+ .topbar-right .currency strong{font-variant-numeric:tabular-nums}
+ .topbar-right .avatar-btn{width:34px;height:34px;flex:0 0 34px}
+ .primary-nav{
+   display:none;position:absolute;inset:100% 10px auto 10px;z-index:50;
+   width:auto;height:auto;max-height:min(70dvh,520px);
+   overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;
+   grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;
+   padding:12px;background:rgba(10,23,41,.99);
+   border:1px solid rgba(232,196,135,.55);border-radius:0 0 16px 16px;
+   box-shadow:0 24px 45px rgba(2,8,18,.86);
+ }
+ .topbar.mobile-menu-open .primary-nav{display:grid}
+ .primary-nav .nav-link{
+   flex:none;min-width:0;width:100%;min-height:52px;padding:9px 6px;
+   border:1px solid rgba(232,196,135,.26);border-radius:9px;
+   background:rgba(23,44,65,.72);white-space:normal;
+   font-size:.78rem;line-height:1.2;flex-direction:row;gap:8px;
+ }
+ .primary-nav .nav-link.is-current{border-color:var(--gold);background:rgba(232,196,135,.15)}
+ .primary-nav .nav-icon{font-size:1.24rem;flex-shrink:0}
+ .view:not(.view-intro){padding-top:calc(var(--dol-mobile-header) + 27px);padding-bottom:100px}
+ .scene-container{width:calc(100% - 28px);max-width:560px}
+ .view-hub,.view-starters,.view-sanctuary,.view-adoption,.view-arena{
+   overflow-x:clip;overflow-y:visible;
+ }
+ .page-heading{margin-bottom:24px}
+ .page-heading h2{font-size:clamp(2rem,9.7vw,2.65rem);overflow-wrap:break-word;line-height:1.06}
+ .page-heading p{line-height:1.5}
+ .hub-heading h2{font-size:clamp(2.1rem,10vw,2.7rem)}
+ .hub-scene{padding-bottom:42px}
+ .hub-trails{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .destination{min-width:0;width:100%;gap:7px;padding:12px 9px;align-items:center}
+ .dest-text{min-width:0}
+ .dest-text strong{font-size:clamp(.71rem,3vw,.85rem);line-height:1.24;overflow-wrap:anywhere}
+ .dest-text small{font-size:clamp(.58rem,2.35vw,.68rem);line-height:1.25}
+ .dest-mark{flex:0 0 auto}
+ .hub-addons{position:relative;left:auto;bottom:auto;right:auto;transform:none;
+   flex-direction:row;flex-wrap:wrap;align-items:stretch;justify-content:stretch;gap:9px;width:100%;white-space:normal}
+ .hub-addons .btn{min-width:0;flex:1 1 130px}
+ .starter-layout{grid-template-columns:minmax(0,1fr);gap:14px}
+ .starter-choices{gap:clamp(6px,2.4vw,11px)}
+ .starter-card{min-width:0}
+ .starter-meta h3{font-size:clamp(.82rem,3.3vw,1.04rem)}
+ .starter-inspector{min-width:0}
+ .starter-bottom-actions .btn{min-width:0;white-space:normal}
+ .adoption-tools{min-width:0}
+ .adoption-tools label,.adoption-tools input,.adoption-tools select{min-width:0;width:100%}
+ .adoption-gallery,.collection-list,.battle-modes,.tour-grid,.quest-grid{grid-template-columns:minmax(0,1fr)}
+ .adoption-card{min-width:0}
+ .adoption-card img{object-fit:contain;max-width:100%;height:clamp(190px,68vw,285px)}
+ .adoption-card-body{min-width:0}
+ .sanctuary-layout{grid-template-columns:minmax(0,1fr)}
+ .sanctuary-portrait{height:auto;min-height:320px}
+ .sanctuary-portrait img{max-height:min(78vw,350px);width:100%;object-fit:contain}
+ .sanctuary-sidebar{min-width:0}
+ .evolution-panel{max-width:100%;overflow:hidden}
+ .evo-form{min-width:0}
+ .evo-form img{max-width:100%;object-fit:contain}
+ .battle-stage{grid-template-columns:minmax(0,1fr)}
+ .battlefield{min-height:clamp(355px,110vw,480px)}
+ .combatant{max-width:58%}
+ .combatant-enemy{top:16%;width:48%;right:2%;height:42%}
+ .combatant-hero{bottom:4%;width:52%;left:2%;height:48%}
+ .combatant-label{min-width:0;width:min(150px,100%);max-width:100%;overflow-wrap:anywhere}
+ .battle-topbar{gap:7px;flex-wrap:wrap}
+ .battle-controls{min-width:0}
+ .skill-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .skill-btn{min-width:0;overflow-wrap:break-word;padding:9px 7px}
+ .battle-bottom-controls{min-width:0}
+ .battle-bottom-controls label,.battle-bottom-controls select{max-width:100%;min-width:0}
+ .tour-grid>.tournament-card,.quest-grid>*{min-width:0}
+ .game-footer{gap:8px;min-height:46px;padding:8px 12px max(8px,env(safe-area-inset-bottom))}
+ .footer-left{min-width:0;flex:1 1 auto}
+ .footer-left #save-status{white-space:normal;overflow-wrap:break-word;font-size:.65rem;line-height:1.25}
+ .game-footer button{flex:0 0 auto;white-space:nowrap;padding:4px 5px}
+ .modal-box{max-width:calc(100vw - 24px);max-height:calc(100dvh - 30px);overflow-y:auto}
+ .toast-stack{bottom:calc(54px + env(safe-area-inset-bottom))}
+}
+@media(max-width:380px){
+ .topbar{padding-left:9px;padding-right:9px;column-gap:7px}
+ .brand-compact{font-size:.75rem}
+ .mobile-menu-toggle{padding:6px 8px;font-size:.75rem}
+ .topbar-right{gap:5px}
+ .topbar-right .currency{padding:3px 6px;font-size:.7rem}
+ .scene-container{width:calc(100% - 22px)}
+ .hub-trails{gap:8px}
+ .destination{padding:11px 6px}
+ .skill-btn strong{font-size:.75rem}
+}
+@media(max-width:340px){
+ .brand-compact{font-size:.7rem}
+ .currency{font-size:.68rem}
+ .avatar-btn{width:30px;height:30px;flex-basis:30px}
+ .starter-meta h3{font-size:.78rem}
+ .evolution-panel{padding:10px 5px}
+ .evo-form{padding:7px 2px}
+}
+@media(orientation:landscape) and (max-height:500px) and (max-width:1000px){
+ .topbar{position:sticky}
+ .game-footer{position:static}
+ .view:not(.view-intro){padding-top:26px}
+ .primary-nav{max-height:70vh}
+}
+@media(prefers-reduced-motion:reduce){
+ .primary-nav,.mobile-menu-toggle{transition:none!important}
+}
+/* Atalhos do Observatório ficam dentro do cenário em tablets, sem cobrir o título. */
+@media (min-width:701px) and (max-width:990px){
+ .hub-scene{position:relative;padding-bottom:0}
+ .hub-addons{position:absolute;bottom:12px;right:0;left:auto;top:auto;transform:none;display:flex;flex-direction:column;align-items:stretch;gap:8px;width:min(210px,28%);margin:0;white-space:normal}
+ .hub-addons .btn{min-height:38px;white-space:normal;font-size:.7rem;padding:7px 9px}
+}
+
+/* ======================================================================
+   CORREÇÃO DO OBSERVATÓRIO — legibilidade do nome da Lenda
+   Preserva as classes originais, a arte e as mecânicas existentes.
+   ====================================================================== */
+.view-hub .hub-companion .companion-caption {
+  position: absolute;
+  z-index: 8;
+  left: 50%;
+  right: auto;
+  bottom: 0;
+  transform: translateX(-50%);
+  display: block;
+  width: max-content;
+  max-width: min(94%, 410px);
+  padding: 9px 18px;
+  color: #ffe5b7;
+  background: linear-gradient(125deg, rgba(8, 21, 40, .96), rgba(20, 39, 57, .96));
+  border: 1px solid rgba(232, 196, 135, .72);
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(4, 11, 24, .55);
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  line-height: 1.3;
+  text-align: center;
+  text-shadow: 0 2px 6px #050b14;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  pointer-events: none;
+}
+
+/* Desktop: eleva a Lenda e sua identificação acima do rodapé fixo. */
+@media (min-width: 991px) {
+  .view-hub .hub-companion {
+    bottom: clamp(76px, 9vh, 112px);
+  }
+  .view-hub .hub-addons {
+    left: auto;
+    right: 0;
+    bottom: 12px;
+    transform: none;
+    width: min(225px, 23vw);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    white-space: normal;
+  }
+  .view-hub .hub-addons .btn {
+    white-space: normal;
+  }
+}
+
+/* Tablet: a cena tem altura própria, mas a identificação não deve ficar
+   encostada no limite inferior da janela. */
+@media (min-width: 701px) and (max-width: 990px) {
+  .view-hub .hub-companion {
+    bottom: clamp(125px, 19%, 170px);
+  }
+  .view-hub .hub-companion .companion-caption {
+    font-size: 1.04rem;
+    max-width: 95%;
+  }
+}
+
+/* Celular: a imagem e a legenda ocupam espaços separados dentro do bloco. */
+@media (max-width: 700px) {
+  .view-hub .hub-companion {
+    height: clamp(280px, 85vw, 355px);
+    margin: 12px auto 42px;
+  }
+  .view-hub .hub-companion img {
+    max-height: calc(100% - 65px);
+  }
+  .view-hub .hub-companion .companion-caption {
+    bottom: 0;
+    max-width: min(95%, 320px);
+    padding: 9px 14px;
+    font-size: clamp(.96rem, 3.9vw, 1.12rem);
+  }
+}
+
+/* Revisão final: desktops baixos não devem ocultar identificação nem diário sob o rodapé. */
+@media (min-width: 991px) and (max-height: 800px) {
+  .view-hub .hub-scene {
+    height: calc(100dvh - 132px);
+    min-height: 0;
+  }
+}
+/* Reserva espaço real para a marca e mantém a navegação acessível em notebooks. */
+@media (min-width: 991px) and (max-width: 1365px) {
+  .topbar .brand-compact { flex-shrink: 0; }
+  .topbar .primary-nav { flex: 1 1 auto; min-width: 0; justify-content: flex-start; }
+  .topbar .nav-link { min-width: 0; padding: 6px 6px; font-size: .75rem; }
+}
+/* ===========================================================================
+   REVISÃO INTEGRAL DE RESPONSIVIDADE · DAWN OF LEGENDS
+   Mantém a identidade e os sistemas existentes. Estas regras prevalecem sobre
+   os ajustes pontuais anteriores e substituem sobreposições por fluxo legível.
+   =========================================================================== */
+
+/* Os painéis podem crescer sem atravessar o rodapé ou bloquear botões. */
+html { overflow-x: clip; }
+body, .app, #main-content { min-width: 0; }
+.scene-container, .content-scene, .starter-layout, .battle-stage,
+.battle-controls, .sanctuary-layout, .sanctuary-sidebar,
+.adoption-tools, .adoption-gallery, .collection-list,
+.tour-grid, .quest-grid, .battle-modes,
+.profile-summary, .tournament-card, .quest-card { min-width: 0; }
+.view:not(.view-intro) { min-height: calc(100dvh - 50px); }
+/* Rodapé pertence ao fluxo da página: nunca fica sobre batalha, evolução ou botões. */
+#game-footer.game-footer {
+  position: relative;
+  inset: auto;
+  z-index: 5;
+  min-height: 46px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-block: 10px max(10px, env(safe-area-inset-bottom));
+}
+.game-footer .footer-left { min-width: 0; }
+.game-footer #save-status { overflow-wrap: anywhere; }
+.page-heading h2:focus, .hub-heading h2:focus, .starter-heading h2:focus {
+  outline: none; /* foco de leitura por JS; os botões mantêm foco visível */
+}
+.page-heading, .starter-heading, .hub-heading { min-width: 0; }
+.page-heading h2, .starter-heading h2, .hub-heading h2 {
+  overflow-wrap: normal;
+  hyphens: auto;
+}
+button, select, input { max-width: 100%; }
+button { touch-action: manipulation; }
+/* Evita que conteúdo de uma grade force seus irmãos para fora da tela. */
+.adoption-card, .collection-card, .battle-mode, .tournament-card,
+.quest-card, .evolution-panel, .starter-inspector { min-width: 0; }
+.adoption-card h3, .collection-card h3, .tournament-card h3,
+.quest-card h3 { overflow-wrap: anywhere; }
+
+/* Desktop: o Observatório mantém a cena original, mas respeita a altura real. */
+@media (min-width: 1201px) {
+  .view-hub .hub-scene {
+    height: max(705px, calc(100dvh - 185px));
+    min-height: 705px;
+    padding-bottom: 0;
+  }
+  .view-hub .hub-heading { top: 22px; max-width: min(650px, 53%); }
+  .view-hub .hub-heading h2 { font-size: clamp(2.8rem, 4.1vw, 4.7rem); }
+  .view-hub .hub-companion {
+    left: 34%; width: 36%; height: 60%;
+    bottom: 86px;
+  }
+  .view-hub .hub-story { bottom: 40px; }
+  .view-hub .hub-addons {
+    left: auto; right: 0; bottom: 44px; transform: none;
+    width: min(242px, 22vw); display: flex;
+    flex-direction: column; align-items: stretch; gap: 9px;
+  }
+  .view-hub .hub-addons .btn { min-height: 42px; white-space: normal; }
+  .topbar { min-width: 0; }
+  .topbar .primary-nav { min-width: 0; overflow-x: auto; scrollbar-width: thin; }
+}
+
+/* Entre desktop e tablet: menu acessível em vez de 7 abas encolhidas. */
+@media (min-width: 701px) and (max-width: 1200px) {
+  .topbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    grid-template-areas: "brand resources menu";
+    align-items: center; align-content: center;
+    gap: clamp(9px, 1.5vw, 18px);
+    width: 100%; height: 76px; min-height: 76px;
+    padding: 9px clamp(14px, 2vw, 28px);
+  }
+  .topbar .brand-compact { grid-area: brand; order: initial; min-width: 0; width: max-content; font-size: clamp(.86rem, 1.5vw, 1.08rem); }
+  .topbar .topbar-right { grid-area: resources; order: initial; width: auto; margin: 0; flex-shrink: 0; }
+  .topbar .currency { flex-shrink: 0; min-width: 0; }
+  .topbar .mobile-menu-toggle {
+    grid-area: menu; display: inline-flex; gap: 9px; align-items: center; justify-content: center;
+    min-height: 43px; padding: 9px 13px;
+    color: #ffe5b7; background: linear-gradient(135deg, #253c55, #101e31);
+    border: 1px solid rgba(232,196,135,.62); border-radius: 10px;
+    font-size: .88rem; font-weight: 700;
+  }
+  .topbar .primary-nav {
+    position: absolute; top: 100%; left: max(12px, 2vw); right: max(12px, 2vw);
+    z-index: 51; display: none; width: auto; min-width: 0; height: auto;
+    max-height: min(65dvh, 500px); overflow: auto;
+    padding: 12px; gap: 9px;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    border: 1px solid rgba(232,196,135,.62); border-radius: 0 0 15px 15px;
+    background: rgba(10,22,39,.98); box-shadow: 0 16px 38px #020817b8;
+    overscroll-behavior: contain;
+  }
+  .topbar.mobile-menu-open .primary-nav { display: grid; }
+  .topbar .primary-nav .nav-link {
+    min-width: 0; width: 100%; min-height: 54px;
+    flex: none; display: flex; flex-direction: row;
+    justify-content: center; gap: 8px;
+    white-space: normal; font-size: .84rem;
+    border: 1px solid rgba(232,196,135,.28); border-radius: 9px;
+    padding: 10px; background: rgba(25,43,66,.93);
+  }
+  .topbar .primary-nav .nav-link.is-current {
+    border-color: #f4cc88; background: rgba(232,196,135,.16);
+  }
+  .view:not(.view-intro) { padding-top: 102px; }
+  .scene-container { width: min(100% - 38px, 1010px); }
+
+  /* Sai a sobreposição absoluta da cena em tablets; fica uma grade real. */
+  .view-hub .hub-scene {
+    display: grid; position: relative;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "heading heading"
+      "creature routes"
+      "story routes"
+      "extras extras";
+    gap: 15px 20px; align-items: start;
+    width: min(calc(100% - 38px), 930px);
+    height: auto; min-height: 0; padding: 8px 0 28px;
+  }
+  .view-hub .hub-heading {
+    grid-area: heading; position: relative; inset: auto;
+    width: 100%; max-width: 100%; text-align: left;
+  }
+  .view-hub .hub-heading h2 { font-size: clamp(2.3rem, 5.2vw, 3.7rem); max-width: 760px; }
+  .view-hub .hub-companion {
+    grid-area: creature; position: relative; inset: auto;
+    width: 100%; height: clamp(290px, 38vw, 390px);
+    margin: 0; place-self: center;
+  }
+  .view-hub .hub-companion img { max-height: calc(100% - 55px); }
+  .view-hub .hub-companion .companion-caption { bottom: 0; }
+  .view-hub .hub-trails {
+    grid-area: routes; position: relative; inset: auto;
+    display: grid; grid-template-columns: 1fr; gap: 10px;
+    align-content: center; pointer-events: auto; margin: 0;
+  }
+  .view-hub .destination {
+    position: relative; inset: auto; min-width: 0; width: 100%;
+    min-height: 76px; padding: 12px 15px;
+  }
+  .view-hub .hub-story {
+    grid-area: story; position: relative; inset: auto;
+    width: 100%; max-width: 100%; margin: 0; min-height: 0;
+  }
+  .view-hub .hub-addons {
+    grid-area: extras; position: relative; inset: auto; transform: none;
+    width: 100%; margin: 2px 0 0;
+    display: flex; flex-direction: row; flex-wrap: wrap;
+    justify-content: center; align-items: stretch; gap: 10px;
+  }
+  .view-hub .hub-addons .btn { flex: 1 1 240px; min-height: 44px; white-space: normal; }
+  .battle-stage, .sanctuary-layout { min-width: 0; }
+}
+
+/* Tablet estreito: respira mais, sem cortar arte nem esconder botões. */
+@media (min-width: 701px) and (max-width: 970px) {
+  .starter-layout { grid-template-columns: minmax(0,1fr); }
+  .starter-inspector { min-width: 0; }
+  .sanctuary-layout, .battle-stage { grid-template-columns: minmax(0,1fr); }
+  .sanctuary-portrait { min-height: 360px; max-height: 480px; }
+  .battlefield { min-height: 480px; }
+  .view-hub .hub-heading h2 { font-size: clamp(2.2rem, 5.2vw, 3rem); }
+  .collection-list { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
+/* Celulares: fluxo vertical; o rodapé aparece DEPOIS do conteúdo. */
+@media (max-width: 700px) {
+  .view:not(.view-intro) { padding-top: calc(var(--dol-mobile-header) + 25px); padding-bottom: 36px; }
+  .view-hub .hub-scene {
+    display: flex; flex-direction: column; align-items: stretch;
+    gap: 14px; height: auto; min-height: 0;
+    padding: 0 0 22px;
+  }
+  .view-hub .hub-heading {
+    position: relative; inset: auto; width: 100%;
+    margin: 0; text-align: center;
+  }
+  .view-hub .hub-heading h2 {
+    font-size: clamp(2rem, 9vw, 2.85rem); line-height: 1.05;
+    margin: 7px 0 10px;
+  }
+  .view-hub .hub-companion {
+    position: relative; inset: auto; width: 100%;
+    height: clamp(275px, 82vw, 360px); min-height: 0;
+    margin: 0; padding: 0; flex-shrink: 0;
+  }
+  .view-hub .hub-companion img { max-height: calc(100% - 57px); }
+  .view-hub .hub-companion .companion-caption { bottom: 0; }
+  .view-hub .hub-trails {
+    position: relative; inset: auto; display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    width: 100%; gap: 10px; margin: 0;
+  }
+  .view-hub .destination {
+    position: relative; inset: auto; width: 100%; min-width: 0;
+    min-height: 83px; padding: 11px 9px;
+  }
+  .view-hub .hub-story { position: relative; inset: auto; width: 100%; max-width: none; margin: 0; }
+  .view-hub .hub-addons {
+    position: relative; inset: auto; transform: none;
+    width: 100%; margin: 0; flex-direction: column; gap: 10px;
+  }
+  .view-hub .hub-addons .btn { min-height: 46px; width: 100%; }
+  .adoption-tools { margin: 14px 0 22px; }
+  .adoption-tools label { min-width: 0; }
+  .adoption-gallery, .collection-list, .battle-modes, .tour-grid, .quest-grid { grid-template-columns: minmax(0,1fr); }
+  .adoption-card img { width: 100%; height: clamp(195px, 66vw, 290px); padding: 10px 22px 0; object-fit: contain; }
+  .sanctuary-portrait { min-height: 310px; max-height: none; }
+  .sanctuary-portrait img { max-height: 300px; }
+  .sanctuary-sidebar { padding: clamp(11px, 3.6vw, 22px); }
+  .battlefield { min-height: clamp(365px, 108vw, 470px); }
+  .battle-stage { display: grid; grid-template-columns: minmax(0,1fr); }
+  .battle-controls { padding: 12px; gap: 12px; }
+  .battle-bottom-controls { align-items: stretch; }
+  .battle-bottom-controls > *, .battle-bottom-controls label { min-width: 0; }
+  .skill-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+  .skill-btn { min-height: 85px; }
+  .evo-line { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 5px; }
+  .evo-form { min-width: 0; }
+  .evo-form img { width: 100%; max-width: 100%; }
+  .modal-box { max-width: calc(100dvw - 24px); max-height: calc(100dvh - 30px); overflow-y: auto; }
+  .toast-stack { bottom: max(14px,env(safe-area-inset-bottom)); }
+  .game-footer { gap: 8px; }
+  .game-footer .footer-left { flex: 1 1 190px; }
+}
+@media (max-width: 350px) {
+  .view-hub .hub-trails { grid-template-columns: minmax(0,1fr); }
+  .starter-choices { display: grid; grid-template-columns: minmax(0,1fr); }
+  .starter-card {
+    min-height: 153px; display: grid; grid-template-columns: 43% minmax(0,1fr);
+    align-items: center; text-align: left;
+  }
+  .starter-art-wrap { height: 150px; }
+  .starter-card .starter-meta { padding: 10px; min-height: 0; }
+  .starter-meta p { display: block; font-size: .75rem; }
+  .starter-meta h3 { font-size: 1.2rem; }
+  .selected-ribbon { left: 4px; top: 4px; }
+  .topbar-right .currency { padding-inline: 5px; }
+  .game-footer { justify-content: center; }
+}
+/* Pequenas alturas/landscape: sem sobrepor a cena à navegação. */
+@media (max-height: 560px) and (orientation: landscape) {
+  .view-intro { overflow: visible; min-height: 560px; }
+  .intro-content { padding-top: 50px; padding-bottom: 80px; }
+  .intro-bottom { position: relative; left: auto; right: auto; bottom: auto; }
+  .view-hub .hub-scene { height: auto; min-height: 680px; }
+  #game-footer { position: relative; }
+}
+/* A regra legada de flex-basis:130px não pode virar ALTURA de botão em coluna. */
+@media(max-width:700px){
+  .view-hub .hub-addons .btn { flex:0 0 auto; width:100%; min-height:46px; }
+}
+/* Orientação deitada: a barra sticky já participa do fluxo e não precisa
+   de uma segunda área vazia acima do título. */
+@media (orientation:landscape) and (max-height:560px) and (max-width:1000px) {
+  .topbar { position: sticky; top: 0; }
+  .view:not(.view-intro) { padding-top: 22px; }
+  .view-hub .hub-scene { min-height: 0; }
+  .view-intro {
+    display: block; overflow: visible;
+    min-height: 610px;
+  }
+  .view-intro .intro-content {
+    width: min(620px, 66vw); min-height: 0;
+    display: block; text-align: left;
+    padding: 45px 25px 118px;
+  }
+  .view-intro .intro-actions { width: auto; max-width: 430px; }
+  .view-intro .intro-bottom {
+    position: absolute; left: 25px; right: 25px; bottom: 16px;
+  }
+  .view-intro .intro-creature {
+    right: -4vw; bottom: 34px;
+    width: min(47vw, 460px); height: min(74vh, 350px);
+    opacity: .75;
+  }
+}
+@media (max-width:380px) and (orientation:portrait) {
+  .intro-creature { right: -15vw; bottom: -2vh; opacity: .34; }
+}
+/* Nomes e mensagens extensos não forçam colunas nem painéis para fora da tela. */
+.profile-summary h3, .stats-title h3, .combatant-label strong,
+.modal-box, .toast, .starter-inspector, .portrait-caption {
+  overflow-wrap: anywhere;
+}
