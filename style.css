@@ -629,3 +629,257 @@ button { touch-action: manipulation; }
 .modal-box, .toast, .starter-inspector, .portrait-caption {
   overflow-wrap: anywhere;
 }
+
+/* =====================================================================
+   RESPONSIVIDADE FINAL — NOVEMBRO/2026
+   Observatório: todas as informações participam do fluxo de layout.
+   Os destinos, o nome da Lenda e o diário não se sobrepõem entre si.
+   Mantém o HTML original (SPA), as imagens e as regras de jogo.
+   ===================================================================== */
+.view-hub .hub-scene {
+  display: grid;
+  position: relative;
+  width: min(1420px, calc(100% - 52px));
+  height: auto;
+  min-height: 0;
+  padding: clamp(20px, 3vw, 36px) 0 44px;
+  margin-inline: auto;
+  grid-template-columns: minmax(210px, .95fr) minmax(280px, 1.35fr) minmax(210px, .95fr);
+  grid-template-areas:
+    "heading heading heading"
+    "story creature routes"
+    "extras extras extras";
+  column-gap: clamp(14px, 2.2vw, 30px);
+  row-gap: clamp(18px, 2vw, 26px);
+  align-items: center;
+  isolation: isolate;
+}
+.view-hub .hub-scene > * { min-width: 0; }
+.view-hub .hub-heading {
+  grid-area: heading;
+  position: relative;
+  inset: auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  z-index: 1;
+  text-align: left;
+}
+.view-hub .hub-heading h2 {
+  font-size: clamp(2.45rem, 4vw, 4.1rem);
+  line-height: 1.06;
+  max-width: 100%;
+  margin-top: 8px;
+  overflow-wrap: normal;
+}
+.view-hub .hub-heading p { max-width: 66ch; margin-bottom: 0; }
+.view-hub .hub-companion {
+  grid-area: creature;
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: clamp(355px, 34vw, 505px);
+  min-height: 0;
+  margin: 0;
+  pointer-events: none;
+  align-self: center;
+  z-index: 1;
+}
+.view-hub .hub-companion .creature-stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+}
+.view-hub .hub-companion .creature-stage > img {
+  position: relative;
+  width: min(100%, 495px);
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100% - 78px);
+  object-fit: contain;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.view-hub .hub-companion .companion-caption {
+  position: relative;
+  inset: auto;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 8px 16px;
+  border: 1px solid rgba(232,196,135,.46);
+  border-radius: 12px;
+  background: rgba(10,24,43,.94);
+  font-size: clamp(.95rem, 1.6vw, 1.3rem);
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+  text-align: center;
+  white-space: normal;
+  z-index: 2;
+}
+.view-hub .hub-trails {
+  grid-area: routes;
+  position: relative;
+  inset: auto;
+  display: grid;
+  grid-template-columns: minmax(0,1fr);
+  align-content: center;
+  gap: clamp(10px, 1.5vw, 16px);
+  width: 100%;
+  margin: 0;
+  pointer-events: auto;
+}
+.view-hub .hub-trails .destination {
+  position: relative;
+  inset: auto;
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  min-height: 80px;
+  margin: 0;
+  gap: 9px;
+  align-items: center;
+  padding: 13px 14px;
+  overflow-wrap: anywhere;
+}
+.view-hub .hub-trails .dest-text { min-width: 0; }
+.view-hub .hub-trails .dest-text strong { line-height: 1.25; }
+.view-hub .hub-story {
+  grid-area: story;
+  position: relative;
+  inset: auto;
+  align-self: center;
+  width: 100%;
+  max-width: 100%;
+  min-height: 0;
+  margin: 0;
+  z-index: 1;
+}
+.view-hub .hub-addons {
+  grid-area: extras;
+  position: relative;
+  inset: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0;
+  gap: 12px;
+  transform: none;
+  white-space: normal;
+  z-index: 1;
+}
+.view-hub .hub-addons .btn {
+  flex: 0 1 auto;
+  min-width: min(210px, 100%);
+  min-height: 45px;
+  padding: 10px 15px;
+  white-space: normal;
+}
+/* Notebook e tablet: arte e destinos lado a lado, diário em sua própria linha. */
+@media (min-width: 701px) and (max-width: 1199px) {
+  .view-hub .hub-scene {
+    width: min(100% - 38px, 1000px);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "heading heading"
+      "creature routes"
+      "story routes"
+      "extras extras";
+    align-items: start;
+    gap: 15px 20px;
+    padding: 18px 0 32px;
+  }
+  .view-hub .hub-heading h2 { font-size: clamp(2.15rem, 4.8vw, 3.55rem); }
+  .view-hub .hub-companion {
+    height: clamp(300px, 39vw, 410px);
+    align-self: center;
+  }
+  .view-hub .hub-trails { align-self: center; }
+  .view-hub .hub-story { align-self: start; }
+  .view-hub .hub-addons .btn { flex: 1 1 220px; }
+}
+/* Celular: todos os blocos ocupam linhas próprias — nenhum posicionamento absoluto. */
+@media (max-width: 700px) {
+  .view-hub .hub-scene {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: min(calc(100% - 28px), 560px);
+    height: auto;
+    min-height: 0;
+    gap: 14px;
+    padding: 12px 0 26px;
+  }
+  .view-hub .hub-heading { text-align: center; }
+  .view-hub .hub-heading h2 { font-size: clamp(1.95rem, 8.1vw, 2.75rem); line-height: 1.13; }
+  .view-hub .hub-companion {
+    position: relative;
+    width: 100%;
+    height: clamp(285px, 83vw, 375px);
+    flex: 0 0 auto;
+  }
+  .view-hub .hub-companion .companion-caption { font-size: 1rem; }
+  .view-hub .hub-trails {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 10px;
+  }
+  .view-hub .hub-trails .destination { min-height: 84px; padding: 11px; }
+  .view-hub .hub-story { width: 100%; }
+  .view-hub .hub-addons { flex-direction: column; gap: 10px; }
+  .view-hub .hub-addons .btn { flex: 0 0 auto; width: 100%; }
+}
+@media (max-width: 350px) {
+  .view-hub .hub-scene { width: calc(100% - 22px); }
+  .view-hub .hub-trails { grid-template-columns: minmax(0,1fr); }
+  .view-hub .hub-trails .destination { min-height: 67px; }
+}
+/* Landscape curto mantém rolagem natural sem comprimir a cena. */
+@media (orientation:landscape) and (max-height:560px) {
+  .view-hub .hub-scene { height: auto; min-height: 0; }
+}
+/* A arte não pode usar a altura intrínseca para empurrar a legenda para fora. */
+.view-hub .hub-companion .creature-stage > img {
+  flex: 1 1 0%;
+  height: 0;
+  min-height: 0;
+  max-height: none;
+  object-fit: contain;
+}
+.view-hub .hub-companion .companion-caption {
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  align-self: center;
+  flex: 0 0 auto;
+  width: max-content;
+  max-width: calc(100% - 12px);
+}
+/* Corrige o mínimo intrínseco dos PNGs quadrados dentro do palco. */
+.view-hub .hub-companion { display: block; }
+.view-hub .hub-companion .creature-stage {
+  height: 100%; min-height: 0; max-height: 100%;
+  overflow: hidden;
+}
+.view-hub .hub-companion .creature-stage > img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  flex: 1 1 0;
+  object-fit: contain;
+}
