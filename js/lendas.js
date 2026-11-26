@@ -1,4 +1,4 @@
-/* Regras das três Lendas jogáveis — lógica independente da interface */
+/* Espécies, atributos, cadastro e regras das Lendas. */
 (function(){'use strict';
 const {Core}=window.DOL;
 const species={
@@ -1740,6 +1740,50 @@ for(const [key,def] of Object.entries(EVOLUTION_NAMES)){
  entry.signature=def[2];
  entry.images=[`assets/lendas/${key}.png`,`assets/evolucoes/${key}-2.png`,`assets/evolucoes/${key}-3.png`];
 }
+const builtInIds = Object.keys(species);
+const templates = {
+ fogo: 'flarim', agua: 'aqualin', terra: 'terron', ar: 'zephira',
+ eletrico: 'faiscote', fada: 'petalume', sombras: 'nocira'
+};
+function syncCatalog() {
+ for (const id of Object.keys(species)) {
+  if (id.startsWith('local-')) delete species[id];
+ }
+ for (const record of Core.state?.catalog ?? []) {
+  const base = species[templates[record.type]];
+  species[record.id] = {
+   ...base, ...record, role: 'Registro local',
+   forms: [record.name, record.name + ' II', record.name + ' III'],
+   price: {coins: 50, shards: 0, diamonds: 0}
+  };
+ }
+}
+function saveCatalogEntry(input, id = '') {
+ const state = Core.state;
+ const record = Core.entryData(input);
+ if (!state || !record) return {ok: false, reason: 'Informe nome, elemento e uma história com pelo menos 10 caracteres.'};
+ const existing = state.catalog.find(item => item.id === id);
+ if (id && !existing) return {ok: false, reason: 'Cadastro não encontrado.'};
+ const key = Core.searchKey(record.name);
+ if (Object.values(species).some(item => item.id !== id && Core.searchKey(item.name) === key)) {
+  return {ok: false, reason: 'Já existe uma Lenda com esse nome.'};
+ }
+ if (existing) {
+  if (existing.type !== record.type && state.collection.some(companion => companion.species === id)) {
+   return {ok: false, reason: 'Após a adoção, o elemento da Lenda é fixo.'};
+  }
+  Object.assign(existing, record);
+  Core.commit();
+  return {ok: true, entry: existing};
+ }
+ if (state.catalog.length >= Core.catalogLimit) {
+  return {ok: false, reason: 'O catálogo já tem 20 registros locais.'};
+ }
+ const entry = {id: 'local-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8), ...record};
+ state.catalog.push(entry);
+ Core.commit();
+ return {ok: true, entry};
+}
 function stageOf(inst){return Math.max(0,Math.min(2,Math.trunc(Number(inst?.stage)||0)));}
 function formName(inst){return species[inst.species].forms[stageOf(inst)];}
 function artwork(inst){return species[inst.species].images[stageOf(inst)];}
@@ -1791,7 +1835,50 @@ function evolve(uid){const c=Core.byUid(uid);if(!c)return {ok:false,reason:'Lend
  c.energy=Math.min(newStats.maxEnergy,c.energy+(newStats.maxEnergy-oldStats.maxEnergy));
  Core.commit();return {ok:true,stage:next,message:`${species[c.species].forms[oldStage]} evoluiu para ${formName(c)}! Novos atributos e técnicas desbloqueados.`};
 }
-function adopt(id){const st=Core.state;if(!st)return {ok:false,reason:'Comece uma jornada.'};if(!species[id])return {ok:false,reason:'Esta espécie ainda não está disponível.'};if(st.collection.some(c=>c.species===id))return {ok:false,reason:'Esta espécie já está na sua coleção.'};const price=species[id].price||{coins:100,shards:2,diamonds:0};if(st.coins<price.coins||st.shards<price.shards||st.diamonds<(price.diamonds||0))return {ok:false,reason:'Recursos insuficientes para esta adoção.'};const c=make(id,5);st.coins-=price.coins;st.shards-=price.shards;st.diamonds-=(price.diamonds||0);st.collection.push(c);if(st.team.length<3)st.team.push(c.uid);Core.commit();return {ok:true,companion:c};}
+function adoptionPrice(id) {
+ return species[id].price ?? {coins: 100, shards: 2, diamonds: 0};
+}
+function canAfford(price) {
+ const {coins, shards, diamonds} = Core.state;
+ return coins >= price.coins && shards >= price.shards && diamonds >= price.diamonds;
+}
+function adopt(id, dedication) {
+ const state = Core.state;
+ if (!state) return {ok: false, reason: 'Comece uma jornada.'};
+ if (!Object.hasOwn(species, id)) return {ok: false, reason: 'Esta espécie ainda não está disponível.'};
+ if (!state.tutor) return {ok: false, reason: 'Cadastre um tutor para confirmar a adoção.'};
+ if (state.collection.some(companion => companion.species === id)) {
+  return {ok: false, reason: 'Esta espécie já está na sua coleção.'};
+ }
+ const price = adoptionPrice(id);
+ if (!canAfford(price)) return {ok: false, reason: 'Recursos insuficientes para esta adoção.'};
+ const companion = make(id, 5);
+ const receipt = Core.adoptionRecord(companion, species[id], state.tutor, dedication);
+ state.coins -= price.coins;
+ state.shards -= price.shards;
+ state.diamonds -= price.diamonds;
+ state.collection.push(companion);
+ state.adoptions.push(receipt);
+ if (state.team.length < 3) state.team.push(companion.uid);
+ Core.commit();
+ return {ok: true, companion};
+}
+function recordPreviousAdoption(uid, dedication) {
+ const state = Core.state;
+ const companion = Core.byUid(uid);
+ if (!companion || !state.tutor || state.adoptions.some(receipt => receipt.uid === uid)) {
+  return {ok: false, reason: 'Não foi possível registrar esta adoção anterior.'};
+ }
+ state.adoptions.push(Core.adoptionRecord(companion, species[companion.species], state.tutor, dedication, true));
+ Core.commit();
+ return {ok: true, companion};
+}
+function careStatus(companion) {
+ if (companion.hp <= 0) return 'Debilitada';
+ const current = stats(companion);
+ if (companion.hp < current.maxHp || companion.energy < current.maxEnergy) return 'Precisa descansar';
+ return 'Pronta';
+}
 function care(uid,action){const st=Core.state,c=Core.byUid(uid);if(!st||!c)return {ok:false,reason:'Lenda não encontrada.'};const all=stats(c);if(action==='feed'){
   if(st.coins<20)return {ok:false,reason:'Moedas insuficientes.'};if(c.bond>=100&&c.energy>=all.maxEnergy)return {ok:false,reason:'Vínculo e energia já estão no máximo.'};st.coins-=20;c.bond=Math.min(100,c.bond+8);c.energy=Math.min(all.maxEnergy,c.energy+8);Core.commit();return {ok:true,message:`${species[c.species].name} se alimentou! Vínculo +8, energia recuperada.`};
  }if(action==='rest'){
@@ -1799,5 +1886,16 @@ function care(uid,action){const st=Core.state,c=Core.byUid(uid);if(!st||!c)retur
  }if(action==='train'){
   if(st.coins<30)return {ok:false,reason:'Moedas insuficientes.'};st.coins-=30;const old=c.level;const gains=gainExp(c,25);st.stats.training++;Core.recordDaily('training');Core.commit();return {ok:true,message:`${species[c.species].name} ganhou 25 de experiência! ${gains?`Subiu para o nível ${c.level}!`:''}`};
  }return {ok:false,reason:'Ação desconhecida.'};}
-window.DOL.Lendas={species,stats,normalise,make,expNeeded,gainExp,advantage,fighter,move,tick,chooseAI,adopt,care,evolve,stageOf,formName,artwork,skillsFor,evolutionLevels,evolutionLabels};
+syncCatalog();
+let lastState = Core.state;
+let lastCatalog = JSON.stringify(lastState?.catalog);
+window.addEventListener('dol:updated', () => {
+ const catalog = JSON.stringify(Core.state?.catalog);
+ if (lastState !== Core.state || lastCatalog !== catalog) {
+  syncCatalog();
+  lastState = Core.state;
+  lastCatalog = catalog;
+ }
+});
+window.DOL.Lendas={species,builtInIds,saveCatalogEntry,adoptionPrice,canAfford,recordPreviousAdoption,careStatus,stats,normalise,make,expNeeded,gainExp,advantage,fighter,move,tick,chooseAI,adopt,care,evolve,stageOf,formName,artwork,skillsFor,evolutionLevels,evolutionLabels};
 })();

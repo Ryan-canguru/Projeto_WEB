@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0b1727">
-  <meta name="description" content="Dawn of Legends — 30 Lendas, desafios e torneios em uma jornada fantástica para descobrir, cuidar e batalhar com Lendas.">
+  <meta name="description" content="Dawn of Legends — cadastre, pesquise, adote e cuide de Lendas em uma jornada de fantasia.">
   <title>Dawn of Legends | O Alvorecer das Lendas</title>
   <link rel="icon" href="assets/interface/emblema.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
   <script defer src="js/core.js"></script>
   <script defer src="js/lendas.js"></script>
-  <script defer src="js/minijogos.js"></script>
+  <script defer src="js/adocao.js"></script>
+  <script defer src="js/app.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
@@ -57,10 +58,10 @@
       <section class="view view-starters" id="view-starters" data-view="starters" hidden aria-labelledby="starter-title">
         <div class="section-scenery bg-observatory" aria-hidden="true"></div>
         <div class="starter-layout scene-container">
-          <div class="starter-heading"><span class="overline">O INÍCIO DE UMA LENDA</span><h2 id="starter-title" tabindex="-1">Seu primeiro vínculo</h2><p>Três caminhos, três personalidades. Conheça cada Lenda antes de começar sua aventura.</p></div>
+          <div class="starter-heading"><span class="overline">O INÍCIO DE UMA LENDA</span><h2 id="starter-title" tabindex="-1">Seu primeiro vínculo</h2><p>Escolha uma Lenda inicial e dê um nome ao seu tutor fictício. A primeira adoção abre o seu histórico.</p></div>
           <div class="starter-choices" id="starter-choices" aria-label="Escolha de Lenda inicial"></div>
           <aside class="starter-inspector" id="starter-inspector" aria-live="polite"></aside>
-          <div class="starter-bottom"><label class="name-field">Nome do Guardião <input id="guardian-name" type="text" maxlength="22" minlength="2" autocomplete="nickname" placeholder="Como deseja ser chamado?" value="Guardião"></label><div class="starter-bottom-actions"><button type="button" class="btn btn-quiet" id="starter-back">Voltar</button><button type="button" class="btn btn-gold" id="confirm-starter">Escolher esta Lenda <span aria-hidden="true">›</span></button></div></div>
+          <div class="starter-bottom"><label class="name-field">Nome fictício do tutor <input id="guardian-name" type="text" maxlength="22" minlength="2" autocomplete="off" placeholder="Ex.: Lia da Aurora" value="Guardião"></label><div class="starter-bottom-actions"><button type="button" class="btn btn-quiet" id="starter-back">Voltar</button><button type="button" class="btn btn-gold" id="confirm-starter">Escolher esta Lenda <span aria-hidden="true">›</span></button></div></div>
         </div>
       </section>
       <!-- HUB -->
@@ -70,7 +71,7 @@
           <div class="hub-heading"><span class="overline">BEM-VINDO AO SEU MUNDO</span><h2 id="hub-title" tabindex="-1">Observatório da Primeira Luz</h2><p id="hub-greeting">O mundo das Lendas está ao seu alcance.</p></div>
           <div class="hub-companion" id="hub-companion" aria-label="Sua Lenda companheira"></div>
           <div class="hub-trails" aria-label="Destinos do Observatório">
-            <button type="button" class="destination dest-adoption" data-route="adoption"><span class="dest-mark">✧</span><span class="dest-text"><strong>Clareira da Adoção</strong><small>Descubra novas Lendas</small></span></button>
+            <button type="button" class="destination dest-adoption" data-route="adoption"><span class="dest-mark">✧</span><span class="dest-text"><strong>Clareira da Adoção</strong><small>Cadastre, pesquise e adote Lendas</small></span></button>
             <button type="button" class="destination dest-sanctuary" data-route="sanctuary"><span class="dest-mark">❀</span><span class="dest-text"><strong>Santuário</strong><small>Cuide do seu vínculo</small></span></button>
             <button type="button" class="destination dest-arena" data-route="arena"><span class="dest-mark">⚔</span><span class="dest-text"><strong>Arena de Treinamento</strong><small>Entre em combate</small></span></button>
             <button type="button" class="destination dest-collection" data-route="collection"><span class="dest-mark">♜</span><span class="dest-text"><strong>Arquivo das Lendas</strong><small>Conheça sua coleção</small></span></button>
@@ -83,11 +84,71 @@
       <section class="view view-adoption" id="view-adoption" data-view="adoption" hidden aria-labelledby="adoption-title">
         <div class="section-scenery bg-forest" aria-hidden="true"></div>
         <div class="content-scene scene-container">
-          <div class="page-heading"><span class="overline">CLAREIRA DAS PRIMEIRAS LUZES</span><h2 id="adoption-title" tabindex="-1">Centro de Adoção</h2><p>As Lendas respondem aos Guardiões que demonstram dedicação. Nenhum ovo, nenhuma espera.</p></div>
-          <div class="info-ribbon"><span>✦ Cada espécie tem sua própria história</span><span>◈ <strong id="adoption-coins">0</strong> moedas</span><span>✧ <strong id="adoption-shards">0</strong> fragmentos</span><span>◆ <strong id="adoption-diamonds">0</strong> diamantes</span></div>
-          <div class="adoption-tools"><label>Filtrar por elemento <select id="adoption-filter"><option value="all">Todos os elementos</option><option value="fogo">Fogo</option><option value="agua">Água</option><option value="terra">Terra</option><option value="ar">Ar</option><option value="eletrico">Elétrico</option><option value="fada">Fada</option><option value="sombras">Sombras</option></select></label><label>Encontrar Lenda <input type="search" id="adoption-search" placeholder="Buscar pelo nome" autocomplete="off"></label><span id="adoption-match-count" role="status">18 espécies disponíveis</span></div>
-          <div class="adoption-gallery" id="adoption-gallery"></div>
-          <div class="future-note"><span class="future-rune">✧</span><div><strong>O bestiário crescerá</strong><p>30 espécies possuem arte individual, atributos e habilidades jogáveis nesta edição. O catálogo completo de 66 espécies continuará crescendo.</p></div></div>
+          <div class="page-heading adoption-heading">
+            <span class="overline">CLAREIRA DAS PRIMEIRAS LUZES</span>
+            <h2 id="adoption-title" tabindex="-1">Centro de Adoção</h2>
+            <p>Pesquise Lendas, faça novos cadastros e registre a história de cada adoção.</p>
+          </div>
+          <nav class="adoption-nav" aria-label="Áreas do Centro de Adoção">
+            <button class="btn btn-glass" type="button" data-adoption-panel="search" aria-current="true">Pesquisar Lendas</button>
+            <button class="btn btn-glass" type="button" data-adoption-panel="catalog">Cadastro de Lendas</button>
+            <button class="btn btn-glass" type="button" data-adoption-panel="tutor">Tutor fictício</button>
+            <button class="btn btn-glass" type="button" data-adoption-panel="cards">Cartões de adoção</button>
+          </nav>
+          <section id="adoption-search-panel" data-adoption-area="search" aria-labelledby="adoption-search-title">
+            <div class="adoption-section-heading">
+              <h3 id="adoption-search-title" tabindex="-1">Catálogo de Lendas</h3>
+              <div class="adoption-balance" aria-label="Recursos para adoção">
+                <span><strong id="adoption-coins">0</strong> moedas</span>
+                <span><strong id="adoption-shards">0</strong> fragmentos</span>
+                <span><strong id="adoption-diamonds">0</strong> diamantes</span>
+              </div>
+            </div>
+            <div class="adoption-tools">
+              <label>Nome da Lenda <input type="search" id="adoption-search" placeholder="Ex.: Flarim" autocomplete="off"></label>
+              <label>Elemento <select id="adoption-filter"><option value="all">Todos os elementos</option></select></label>
+              <label>Situação <select id="adoption-status"><option value="all">Todas as situações</option><option value="available">Disponíveis para adoção</option><option value="owned">Adotadas</option></select></label>
+              <button class="btn btn-quiet" type="button" id="clear-adoption-filters">Limpar filtros</button>
+            </div>
+            <p id="adoption-match-count" role="status"></p>
+            <div class="adoption-gallery" id="adoption-gallery"></div>
+          </section>
+          <section id="adoption-catalog-panel" data-adoption-area="catalog" aria-labelledby="adoption-catalog-title" hidden>
+            <div class="adoption-section-heading"><h3 id="adoption-catalog-title" tabindex="-1">Cadastro de Lendas</h3></div>
+            <div class="adoption-workspace">
+              <form id="catalog-form" class="adoption-form">
+                <h4 id="catalog-form-title">Cadastrar uma Lenda</h4>
+                <label>Nome da Lenda <input id="catalog-name" type="text" required minlength="2" maxlength="32" autocomplete="off"></label>
+                <label>Elemento <select id="catalog-type" required></select></label>
+                <label>História da Lenda <textarea id="catalog-lore" required minlength="10" maxlength="280" rows="4"></textarea></label>
+                <p class="field-hint" id="catalog-type-note" hidden>Após a adoção, o elemento fica fixo.</p>
+                <p class="field-hint">A ilustração e os atributos vêm do elemento escolhido. A adoção custa 50 moedas.</p>
+                <p class="adoption-feedback" id="catalog-feedback" role="status" hidden></p>
+                <div class="adoption-actions">
+                  <button class="btn btn-gold" id="catalog-submit" type="submit">Cadastrar Lenda</button>
+                  <button class="btn btn-quiet" id="catalog-cancel" type="button" hidden>Cancelar edição</button>
+                </div>
+              </form>
+              <div class="adoption-local">
+                <h4>Lendas cadastradas <span id="local-entry-count"></span></h4>
+                <div id="local-entries"></div>
+              </div>
+            </div>
+          </section>
+          <section id="adoption-tutor-panel" data-adoption-area="tutor" aria-labelledby="adoption-tutor-title" hidden>
+            <div class="adoption-section-heading"><h3 id="adoption-tutor-title" tabindex="-1">Tutor fictício</h3></div>
+            <form id="tutor-form" class="adoption-form">
+              <p id="tutor-note"></p>
+              <label>Nome fictício <input id="tutor-name" required minlength="2" maxlength="22" autocomplete="off"></label>
+              <label>Lugar de origem na história <input id="tutor-origin" required minlength="2" maxlength="40" autocomplete="off" placeholder="Ex.: Vila das Marés"></label>
+              <p class="adoption-feedback" id="tutor-feedback" role="status" hidden></p>
+              <div class="adoption-actions"><button class="btn btn-gold" id="tutor-submit" type="submit">Salvar tutor</button></div>
+            </form>
+          </section>
+          <section id="adoption-cards-panel" data-adoption-area="cards" aria-labelledby="adoption-cards-title" hidden>
+            <div class="adoption-section-heading"><h3 id="adoption-cards-title" tabindex="-1">Cartões de adoção</h3></div>
+            <div id="adoption-archive"></div>
+          </section>
         </div>
       </section>
       <!-- SANTUÁRIO -->
@@ -95,7 +156,7 @@
         <div class="section-scenery bg-forest" aria-hidden="true"></div>
         <div class="content-scene scene-container sanctuary-shell">
           <div class="page-heading"><span class="overline">ONDE OS VÍNCULOS FLORESCEM</span><h2 id="sanctuary-title" tabindex="-1">Santuário das Lendas</h2><p>Descanse com sua companheira, cuide de suas necessidades e fortaleça seu vínculo.</p></div>
-          <div class="sanctuary-layout"><div class="sanctuary-portrait" id="sanctuary-portrait"></div><div class="sanctuary-sidebar"><div class="sanctuary-selector"><label for="sanctuary-choice">Lenda em cuidado</label><select id="sanctuary-choice"></select></div><div id="sanctuary-stats"></div><div id="evolution-panel" class="evolution-panel" aria-label="Evoluções da Lenda"></div><div class="care-actions"><button type="button" class="action-tile" data-care="feed"><span>✿</span><strong>Alimentar</strong><small>20 moedas · vínculo +8, energia +8</small></button><button type="button" class="action-tile" data-care="rest"><span>☾</span><strong>Descansar</strong><small>Recupera vida e energia</small></button><button type="button" class="action-tile" data-care="train"><span>✦</span><strong>Treinar</strong><small>30 moedas · experiência +25</small></button></div></div></div>
+          <div class="sanctuary-layout"><div class="sanctuary-portrait" id="sanctuary-portrait"></div><div class="sanctuary-sidebar"><div class="sanctuary-selector"><label for="sanctuary-choice">Lenda em cuidado</label><select id="sanctuary-choice"></select></div><div id="sanctuary-stats"></div><div class="care-actions"><button type="button" class="action-tile" data-care="feed"><span>✿</span><strong>Alimentar</strong><small>20 moedas · vínculo +8, energia +8</small></button><button type="button" class="action-tile" data-care="rest"><span>☾</span><strong>Descansar</strong><small>Recupera vida e energia</small></button><button type="button" class="action-tile" data-care="train"><span>✦</span><strong>Treinar</strong><small>30 moedas · experiência +25</small></button></div><details class="evolution-details" id="evolution-details"><summary>Linha evolutiva</summary><div id="evolution-panel" class="evolution-panel" aria-label="Evoluções da Lenda"></div></details></div></div>
         </div>
       </section>
       <!-- COLEÇÃO -->
@@ -104,7 +165,6 @@
           <div class="page-heading"><span class="overline">REGISTROS DA PRIMEIRA LUZ</span><h2 id="collection-title" tabindex="-1">Arquivo das Lendas</h2><p>Suas companheiras de jornada, seus atributos e a equipe que enfrentará as próximas aventuras.</p></div>
           <div class="collection-ribbon"><strong id="collection-count">1 / 30 espécies</strong><span>Equipe de até 3 Lendas · clique para selecionar ou remover</span></div>
           <div class="collection-list" id="collection-list"></div>
-          <div class="future-note"><span class="future-rune">♜</span><div><strong>66 espécies planejadas · 198 formas</strong><p>30 espécies jogáveis, cada uma com três estágios que modificam atributos, aparência e habilidades. A evolução ocorre manualmente nos níveis 18 e 35.</p></div></div>
         </div>
       </section>
       <!-- ARENA DE TREINAMENTO -->
@@ -146,10 +206,25 @@
         <div class="content-scene scene-container simple-page"><div class="page-heading"><span class="overline">ACESSIBILIDADE E CONTROLE</span><h2 id="settings-title" tabindex="-1">Configurações</h2><p>Personalize a apresentação do jogo sem alterar suas regras.</p></div><div class="settings-panel"><label class="setting-row"><span><strong>Reduzir animações</strong><small>Desativa movimentos decorativos e simplifica transições.</small></span><input type="checkbox" id="setting-reduced-motion"></label><label class="setting-row"><span><strong>Alto contraste</strong><small>Aumenta a distinção de bordas e textos.</small></span><input type="checkbox" id="setting-high-contrast"></label><p class="help-note">Atalhos: Tab para avançar, Enter/Espaço para escolher, Esc para fechar janelas. Você também pode usar o leitor de tela e navegar sem mouse.</p><div class="settings-actions"><button type="button" class="btn btn-glass" id="btn-settings-back">Voltar</button><button type="button" class="btn btn-glass" id="btn-settings-backup" data-route="profile">Gerenciar salvamento e backup</button></div></div></div>
       </section>
     </main>
-    <footer class="game-footer" id="game-footer" hidden><div class="footer-left"><span class="save-pulse" aria-hidden="true"></span><span id="save-status" role="status">Jornada pronta</span></div><button type="button" id="btn-settings" data-route="settings">⚙ <span>Configurações</span></button><span class="footer-version">DAWN OF LEGENDS · 30 LENDAS · ARENA TÁTICA</span></footer>
+    <footer class="game-footer" id="game-footer" hidden><div class="footer-left"><span class="save-pulse" aria-hidden="true"></span><span id="save-status" role="status">Jornada pronta</span></div><button type="button" id="btn-settings" data-route="settings">⚙ <span>Configurações</span></button><span class="footer-version">DAWN OF LEGENDS · A PRIMEIRA LUZ</span></footer>
   </div>
   <div class="toast-stack" id="toast-stack" aria-live="polite" aria-atomic="false"></div>
   <div class="modal-backdrop" id="modal-backdrop" hidden><div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-message"><div class="modal-ornament">✦</div><h2 id="modal-title">Confirmar</h2><p id="modal-message"></p><div class="modal-actions"><button type="button" class="btn btn-quiet" id="modal-cancel">Cancelar</button><button type="button" class="btn btn-gold" id="modal-confirm">Confirmar</button></div></div></div>
+  <dialog id="adoption-dialog" aria-labelledby="adoption-dialog-title">
+    <form id="adoption-confirm-form" class="adoption-form">
+      <h3 id="adoption-dialog-title">Confirmar adoção</h3>
+      <p id="adoption-dialog-details"></p>
+      <p class="adoption-preview" id="adoption-dialog-message"></p>
+      <label>Dedicatória para o cartão (opcional)
+        <textarea id="adoption-dedication" maxlength="160" rows="2" placeholder="Escreva uma frase para a sua Lenda."></textarea>
+      </label>
+      <p class="adoption-feedback" id="adoption-dialog-feedback" role="status" hidden></p>
+      <div class="adoption-actions">
+        <button class="btn btn-quiet" type="button" id="cancel-adoption" autofocus>Cancelar</button>
+        <button class="btn btn-gold" type="submit" id="confirm-adoption">Confirmar adoção</button>
+      </div>
+    </form>
+  </dialog>
   <input id="import-input" type="file" accept=".json,application/json" hidden aria-label="Importar arquivo de progresso">
   <noscript><p class="no-script">Dawn of Legends precisa de JavaScript para funcionar. Ative o JavaScript e reabra esta página.</p></noscript>
 </body>
